@@ -4,27 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RTS Timeline</title>
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body class="dark:bg-gray-300">
-  <h1 class="text-3xl font-bold text-center text-blue-600">RTS Timeline: A Brief History of Real Time Strategy Games</h1>
-  <div class="container">
-    <!--singular unit of timeline-->
-    <div class="flex mx-auto p-2">
-      <section id="what-is-rts">
-        <h2 class="text-md">What is RTS?</h2>
+  <body class="bg-gray-50">
+  <main class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- Header -->
+    <h1 class="text-3xl font-bold text-center mb-16 text-blue-600">
+      A Brief History of Real Time Strategy Games
+    </h1>
 
-        <!--needs a part of the main vertical line as well as the line jutting out from the node, start with some nodes and css on divs-->
-      </section>
+    <!-- Timeline Container -->
+    <div class="relative">
+      <!-- Main Timeline Section -->
+      <div class="grid grid-cols-[1fr_auto_1fr] md:gap-8">
+        <!-- Vertical Timeline Line -->
+        <div class="timeline-line col-start-2 row-span-full"></div>
+
+        <!-- Timeline Items Container -->
+        <div class="col-span-3 space-y-24">
+          <!-- Timeline Item Template -->
+          <div class="timeline-container">
+            <!-- Left Card -->
+            <div class="timeline-card md:col-start-1 md:col-end-2">
+              <div class="flex items-center gap-4">
+                <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                  <h3 class="font-bold text-xl mb-2">What is RTS?</h3>
+                  <div class="mt-4 w-full h-32 bg-gray-100 flex items-center justify-center text-gray-400">
+                    IMAGE and/or TEXT
+                  </div>
+                </div>
+                <div class="connector connector-right hidden md:block"></div>
+              </div>
+            </div>
+
+            <!-- Node -->
+            <div class="timeline-node">
+              <div class="w-12 h-12 rounded-full bg-gray-100 border-4 border-blue-500 flex items-center justify-center">
+                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example of Right-aligned Card -->
+          <div class="timeline-container">
+            <div class="timeline-card md:col-start-3 md:col-end-4">
+              <div class="flex items-center gap-4">
+                <div class="connector connector-left hidden md:block"></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                  <h3 class="font-bold text-xl mb-2">The Beginnings</h3>
+                  <p class="text-gray-600">pre-1992</p>
+                  <div class="mt-4 w-full h-32 bg-gray-100 flex items-center justify-center text-gray-400">
+                    IMAGE and/or TEXT
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-node">
+              <div class="w-12 h-12 rounded-full bg-gray-100 border-4 border-blue-500 flex items-center justify-center">
+                <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-sports & Legacy Node -->
+      <div class="flex flex-col items-center mt-24 mb-16">
+        <div class="w-12 h-12 rounded-full bg-gray-100 border-4 border-blue-500 flex items-center justify-center">
+          <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+        </div>
+        <h3 class="font-bold text-xl mt-4">E-sports & Legacy</h3>
+      </div>
     </div>
-  </div>
-  <footer class ="flex justify-center items-center bg-blue-200 py-5 fixed bottom-0 w-full">
-    <a href="https://github.com/thomas-tahk" class="mx-2">
-      <img src="/github-mark.png" alt="github icon and link" class="w-10 h-10">
-    </a>
-    <a href="https://www.linkedin.com/in/thomas-tahk-dev/" class="mx-2">
-      <img src="/LI-In-Bug.png" alt="linked-in icon and link" class="w-12 h-10">
-    </a>
-  </footer>
-    <script type="module" src="/src/main.js"></script>
+
+    <!-- Credits Section -->
+    <div class="max-w-2xl mx-auto mt-24 bg-gray-50 p-6 rounded-lg">
+      <h3 class="font-bold text-xl mb-4">CREDITS</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li>www.youtube.com/ipsum-lorem</li>
+        <li>ipsum lorem article link</li>
+        <li>Class aptent taciti sociosqu ad</li>
+        <li>litora torquent per himenaeos</li>
+        <li>Class aptent taciti sociosqu ad</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 bg-sky-100 p-8">
+      <div class="flex justify-center space-x-8">
+        <img src="/github-mark.png" alt="GitHub" class="w-12 h-12">
+        <img src="/LI-In-Bug.png" alt="LinkedIn" class="w-12 h-12">
+      </div>
+    </footer>
+  </main>
+  <script src="src/main.js"></script>
   </body>
 </html>

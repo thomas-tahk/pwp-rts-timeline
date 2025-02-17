@@ -1,3 +1,55 @@
 @import "tailwindcss";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+
+.timeline-line {
+    position: relative;
+    width: 4px;
+    background-color: #3B82F6;
+    margin: 0 auto;
+}
+
+.connector {
+    position: relative;
+    height: 2px;
+    background-color: #3B82F6;
+}
+
+.connector-right {
+    margin-left: auto;
+    width: calc(100% - 1rem);
+}
+
+.connector-left {
+    margin-right: auto;
+    width: calc(100% - 1rem);
+}
+
+@media (max-width: 768px) {
+    .timeline-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 4rem;
+        gap: 1rem;
+    }
+
+    .timeline-line {
+        margin: 0;
+        margin-left: 50%;
+        height: 100%;
+    }
+
+    .connector {
+        width: 2rem;
+        margin-left: auto;
+    }
+
+    .timeline-card {
+        grid-column: 1;
+    }
+
+    .timeline-node {
+        grid-column: 2;
+        margin-top: 50%;
+        transform: translateY(-50%);
+    }
+}
