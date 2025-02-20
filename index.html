@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body class="bg-gray-50 flex flex-col">
-  <main class="container mx-auto px-4 py-8 max-w-6xl">
+  <section id="timeline" class="hidden container mx-auto px-4 py-8 max-w-6xl">
     <!-- Header -->
     <h1 class="text-5xl font-bold text-center mb-10 text-blue-600">
       A Brief History of Real Time Strategy Games
@@ -145,11 +145,11 @@
   <div class="max-w mt-24 bg-gray-50 p-6 rounded-lg text-center bg-slate-100">
     <h3 class="font-bold text-xl mb-4">CREDITS</h3>
     <ul class="space-y-2 text-gray-600">
-      <li>www.youtube.com/ipsum-lorem</li>
-      <li>ipsum lorem article link</li>
-      <li>Class aptent taciti sociosqu ad</li>
-      <li>litora torquent per himenaeos</li>
-      <li>Class aptent taciti sociosqu ad</li>
+      <li><a href="#" class="hover:text-blue-500">www.youtube.com/ipsum-lorem</a></li>
+      <li><a href="#" class="hover:text-blue-500">www.youtube.com/ipsum-lorem</a></li>
+      <li><a href="#" class="hover:text-blue-500">www.youtube.com/ipsum-lorem</a></li>
+      <li><a href="#" class="hover:text-blue-500">www.youtube.com/ipsum-lorem</a></li>
+      <li><a href="#" class="hover:text-blue-500">www.youtube.com/ipsum-lorem</a></li>
     </ul>
   </div>
 
@@ -164,7 +164,51 @@
       </a>
     </div>
   </footer>
-  </main>
+  </section>
+  <section id="aside" class="">
+    <div class="container w-screen h-screen mt-10 mb-60" id="about-rts-info">
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
+        </div>
+      </div>
+      <a class="mx-auto py-2" href="#rts-origins-info">
+        <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next aside section">
+      </a>
+    </div>
+
+    <div class="container w-screen h-screen mt-10 mb-60" id="rts-origins-info">
+      <a class="mx-auto py-2" href="#about-rts-info">
+        <img class="mx-auto rotate-270" src="/arrow_img.png" alt="arrow button to take to next aside section">
+      </a>
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+        </div>
+      </div>
+      <a class="mx-auto py-2" href="#about-rts-info">
+        <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next aside section">
+      </a>
+    </div>
+  </section>
   <script src="src/main.js"></script>
   </body>
 </html>
