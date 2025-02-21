@@ -8,7 +8,6 @@
   </head>
   <body class="bg-gray-50 flex flex-col">
   <section id="timeline" class="hidden container mx-auto px-4 py-8 max-w-6xl">
-    <!-- Header -->
     <h1 class="text-5xl font-bold text-center mb-10 text-blue-600">
       A Brief History of Real Time Strategy Games
     </h1>
@@ -36,7 +35,7 @@
         <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
           <!-- beginning dot -->
           <div class="bg-blue-800 w-6 h-6 rounded-full -ml-3 -mt-3"></div>
-          <button class="h-24 w-24 mt-14 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-12">
+          <button id="testHiddenToggle" class="h-24 w-24 mt-14 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-12">
             <img src="/github-mark.png" alt="PLACEHOLDER" class="p-1 border-none rounded">
           </button>
         </div>
@@ -165,32 +164,38 @@
     </div>
   </footer>
   </section>
-  <section id="aside" class="">
-    <div class="container w-screen h-screen mt-10 mb-60" id="about-rts-info">
-      <div class="grid grid-cols-2 gap-6">
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
-        </div>
+  <section id="showcase" class="">
+    <div class="container grid gap-1 grid-cols-1 md:grid-cols-5 grid-rows-11 mx-10 w-screen h-screen mt-10 mb-60" id="about-rts">
+      <div class="col-span-1 md:col-span-2 row-span-2">
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
       </div>
-      <a class="mx-auto py-2" href="#rts-origins-info">
-        <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next aside section">
-      </a>
+      <div class="col-span-1 md:col-span-2 row-span-2">
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
+      </div>
+      <p class="col-span-1 md:col-span-2 row-span-1">Placeholder accompanying text for Image 1 of gallery</p>
+      <p class="col-span-1 md:col-span-2 row-span-1">Placeholder accompanying text for Image 2 of gallery</p>
+      <div class="col-span-1 md:col-span-2 row-span-2">
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
+      </div>
+      <div class="col-span-1 md:col-span-2 row-span-2">
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
+      </div>
+      <p class="col-span-1 md:col-span-2 row-span-1">Placeholder accompanying text for Image 3 of gallery</p>
+      <p class="col-span-1 md:col-span-2 row-span-1">Placeholder accompanying text for Image 4 of gallery</p>
+      <iframe class="h-auto max-w-full col-span-1 md:col-start-2 md:col-end-5 row-span-2" src="https://www.youtube.com/embed/pr898xtYUjk?si=m1KSsLvJhq9wLApF" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      <p class="col-span-1 md:col-span-3 row-span-1">Placeholder accompanying text for video</p>
     </div>
 
+    <a class="mx-auto py-2" href="#rts-origins-info">
+      <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next aside section">
+    </a>
+
+
     <div class="container w-screen h-screen mt-10 mb-60" id="rts-origins-info">
-      <a class="mx-auto py-2" href="#about-rts-info">
+      <a class="mx-auto py-2" href="#about-rts">
         <img class="mx-auto rotate-270" src="/arrow_img.png" alt="arrow button to take to next aside section">
       </a>
-      <div class="grid grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mx-10">
         <div>
           <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
         </div>
@@ -204,9 +209,10 @@
           <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
         </div>
       </div>
-      <a class="mx-auto py-2" href="#about-rts-info">
+      <a class="mx-auto py-2" href="#about-rts">
         <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next aside section">
       </a>
+      <button type="button" id="testToggle" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">TESTING</button>
     </div>
   </section>
   <script src="src/main.js"></script>
