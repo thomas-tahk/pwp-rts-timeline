@@ -169,8 +169,8 @@
         </div>
     </footer>
 </section>
-<section id="showcase" class="">
-    <div class="container grid gap-1 grid-cols-1 md:grid-cols-5 mx-10 w-screen h-screen mt-10 mb-10" id="about-rts">
+<section id="showcase" class="container mx-auto px-10">
+    <div class= "grid gap-4 grid-cols-1 md:grid-cols-4 mt-10 mb-10" id="about-rts">
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
                  src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
@@ -191,15 +191,19 @@
                  src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
             <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 4 of gallery</p>
         </div>
-        <div class="col-span-1 md:col-start-2 md:col-end-5">
-            <iframe class="h-auto max-w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
-                    title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            <p class="col-span-1 md:col-span-3">Placeholder accompanying text for video</p>
+        <div class="col-span-1 md:col-span-full aspect-video">
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p class="col-span-1 md:col-span-full text-center">Placeholder accompanying text for video</p>
         </div>
     </div>
-    <a class="mx-auto py-2" href="#rts-origins-info">
-        <img class="mx-auto rotate-90" src="/arrow_img.png" alt="arrow button to take to next showcase section">
-    </a>
+    <div class="col-span-1 md:col-span-4 flex justify-center">
+        <a class="py-2 text-center font-bold" href="#">
+            NEXT
+            <img class="rotate-90 w-[100px] h-[100px]" src="/arrow_img.png" alt="arrow button to take to next showcase section">
+        </a>
+    </div>
+
 
 
 
