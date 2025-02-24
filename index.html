@@ -170,7 +170,18 @@
     </footer>
 </section>
 <section id="showcase" class="container mx-auto px-10">
-    <div class= "grid gap-4 grid-cols-1 md:grid-cols-4 mt-10 mb-10" id="about-rts">
+    <!--going back to timeline-->
+    <div class="flex justify-center fixed left-0 top-1/2 px-2" id="testToggle">
+        <a class="py-2 text-center font-bold" href="#">
+            Timeline
+            <img class="h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/BackButton.png" alt="Go Back to Timeline">
+        </a>
+    </div>
+    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10" id="about-rts">
+        <div class="col-span-1 md:col-span-4 flex flex-col">
+            <h1 class="text-6xl text-center">What is an RTS?</h1>
+            <div class="border-b border-solid border-4 border-green-300"></div>
+        </div>
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
                  src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
@@ -200,7 +211,7 @@
     <div class="col-span-1 md:col-span-4 flex justify-center">
         <a class="py-2 text-center font-bold" href="#">
             NEXT
-            <img class="rotate-90 w-[100px] h-[100px]" src="/arrow_img.png" alt="arrow button to take to next showcase section">
+            <img class="rotate-90 h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/arrow_img.png" alt="arrow button to take to next showcase section">
         </a>
     </div>
 
