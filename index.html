@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/src/index.css"/>
 </head>
 <body class="bg-gray-50 flex flex-col">
-<section id="timeline" class="hidden container mx-auto px-4 py-8 max-w-6xl">
+<section id="timeline" class="container mx-auto px-4 py-8 max-w-6xl">
     <h1 class="text-5xl font-bold text-center mb-10 text-blue-600">
         A Brief History of Real Time Strategy Games
     </h1>
@@ -126,7 +126,6 @@
                     <img src="/github-mark.png" alt="PLACEHOLDER" class="p-1 border-none rounded">
                 </button>
             </div>
-            <div class="h-0 w-0 border-x-8 border-x-transparent border-t-[40px] border-t-indigo-600 ml-23"></div>
         </div>
         <!--right column-->
         <div class="w-2/5 flex-none p-2">
@@ -142,6 +141,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!--bottom arrow-->
+    <div class="flex flex-no-wrap sm:flex-row-reverse1 justify-center">
+        <!-- left col -->
+        <div class="w-2/5 flex-none p-2 hidden lg:block">
+        </div>
+        <!-- actual arrow -->
+        <div class="w-1/5 sm:1/3 flex-none float-left">
+            <div class="mx-auto h-0 w-0 border-x-8 border-x-transparent border-t-[60px] border-t-indigo-600"></div>
+        </div>
+        <!--right column-->
+        <div class="w-2/5 sm:2/3 flex-none p-2">
         </div>
     </div>
 
@@ -169,7 +182,7 @@
         </div>
     </footer>
 </section>
-<section id="showcase" class="container mx-auto px-10">
+<section id="showcase" class="hidden container mx-auto px-10">
     <!--going back to timeline-->
     <div class="flex justify-center fixed left-0 top-1/2 px-2" id="testToggle">
         <a class="py-2 text-center font-bold" href="#">
