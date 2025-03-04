@@ -2,8 +2,8 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
-    .timeline-card {
-        display: flex;
-        width: 100%;
-    }
+.timeline-card {
+    display: flex;
+    width: 100%;
+}
 
