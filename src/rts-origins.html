@@ -5,9 +5,60 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>RTS Origins</title>
+    <link rel="stylesheet" href="/src/index.css"/>
 </head>
-<body>
-<h1>Hello! I exist!</h1>
+<body class="bg-gray-50 flex flex-col">
+<section class="container mx-auto px-10">
+    <!--going back to timeline-->
+    <div class="flex justify-center fixed left-0 top-1/2 px-2">
+        <a class="py-2 text-center font-bold" href="../index.html">
+            Timeline
+            <img class="h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/BackButton.png" alt="Go Back to Timeline">
+        </a>
+    </div>
+    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10"
+         id="about-rts">
+        <div class="col-span-1 md:col-span-4 flex flex-col">
+            <h1 class="text-6xl text-center z-1">Origins of RTS</h1>
+            <div class="border-b border-solid border-4 border-green-300"></div>
+        </div>
+        <div class="col-span-1 md:col-span-2">
+            <img class="h-auto max-w-full rounded-lg"
+                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
+            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 1 of gallery</p>
+        </div>
+        <div class="col-span-1 md:col-span-2">
+            <img class="h-auto max-w-full rounded-lg"
+                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
+            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 2 of gallery</p>
+        </div>
+        <div class="col-span-1 md:col-span-2">
+            <img class="h-auto max-w-full rounded-lg"
+                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
+            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 3 of gallery</p>
+        </div>
+        <div class="col-span-1 md:col-span-2">
+            <img class="h-auto max-w-full rounded-lg"
+                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
+            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 4 of gallery</p>
+        </div>
+        <div class="col-span-1 md:col-span-full aspect-video">
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p class="col-span-1 md:col-span-full text-center">Placeholder accompanying text for video</p>
+        </div>
+    </div>
+    <div class="col-span-1 md:col-span-4 flex justify-center">
+        <a class="py-2 text-center font-bold" href="#">
+            NEXT
+            <img class="rotate-90 h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/arrow_img.png"
+                 alt="arrow button to take to next showcase section">
+        </a>
+    </div>
+</section>
+<script type="module" src="./main.js"></script>
 </body>
 </html>
