@@ -1,6 +1,6 @@
 # pwp-rts-timeline
 ### To run this project:
-clone repo
+clone repo then run commands below:
 npm install
 npm run dev
 
