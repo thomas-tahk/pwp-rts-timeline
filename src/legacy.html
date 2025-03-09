@@ -8,7 +8,7 @@
     <title>Legacy</title>
     <link rel="stylesheet" href="/src/index.css"/>
 </head>
-<body class="bg-gray-50 flex flex-col">
+<body id="legacy-body" class="bg-[url('/colosseum-legacy.webp')] bg-cover flex flex-col">
 <section class="container mx-auto px-10">
     <!--going back to timeline-->
     <div class="flex justify-center fixed left-0 top-1/2 px-2">
@@ -23,32 +23,46 @@
             <h1 class="text-6xl text-center z-1">Legacy</h1>
             <div class="border-b border-solid border-4 border-green-300"></div>
         </div>
-        <div class="col-span-1 md:col-span-2">
-            <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="placeholder1">
-            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 1 of gallery</p>
+        <div class="grid gap-4 col-span-1 md:col-span-2">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                     src="/glitch_flat_purple.png" alt="Twitch Logo">
+                <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Twitch wouldn't have made the transition to be a game focused streaming platform without the popularity of SC2 at the time to incentivize it.</p>
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                     src="/stormgate-boxart.webp" alt="stormgate campaign">
+                <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Stormgate - developed by Frost Giant and one of the new games potentially poised to spiritually succeed Starcraft 2, the starting team was primarily composed of ex-Blizzard and other former RTS devs.</p>
+            </div>
+
         </div>
-        <div class="col-span-1 md:col-span-2">
-            <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
-            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 2 of gallery</p>
+        <div class="grid gap-4 col-span-1 md:col-span-2">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                     src="/2022-LoL.webp" alt="LoL WC 2022">
+                <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Crowd at League of Legends World Championships 2022. RTS paved the way for games like this via serving as previously successful case studies of eSports and as sources of original material for the genre via custom maps.</p>
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                     src="/CasterJunLoL.webp" alt="Jun again">
+                <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">It seems strange as a Starcraft fan to know now that Caster Jun had more years casting LoL than SC as of 2025.</p>
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                     src="/soop-logo.svg" alt="soop logo">
+                <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Korea's equivalent of Twitch, recently rebranded in 2024 away from AfreecaTv as it was for over a decade to now SOOP.</p>
+            </div>
         </div>
-        <div class="col-span-1 md:col-span-2">
-            <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
-            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 3 of gallery</p>
-        </div>
-        <div class="col-span-1 md:col-span-2">
-            <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
-            <p class="col-span-1 md:col-span-2">Placeholder accompanying text for Image 4 of gallery</p>
-        </div>
-        <div class="col-span-full text-center">
-            <h3>Legacy of RTS: Standing the Test of Time</h3>
-            <p>
+
+
+
+
+        <div class="col-span-full text-center bg-slate-200 md:text-lg p-4 rounded-lg">
+            <h3 class="font-semibold md:text-2xl">Legacy of RTS: Standing the Test of Time</h3>
+            <p class="font-medium text-left indent-8">
                 Legacy of RTS in competitive gaming and eSports is clear and outlined elsewhere, however, its influences and lasting marks on gaming and beyond are numerous. To summarize:
             </p>
-            <ul>
+            <ul class="font-medium text-left indent-8">
                 <li>Rise of Twitch.tv platform and other streaming platforms (Afreeca aka SOOP for KR) - Before Twitch, there was Justin. Justin decided to swerve away from a generalist content policy to focus on games due to popularity of Starcraft 2 at the time. Its first partnered influencer account (as in first to have a subscription available to his channel) was none other than Day[9] aka Sean Plott, who was a former Broodwar pro player, Starcraft 2 commentator, and Starcraft content creator.</li>
                 <li>Online Gaming Mannerisms - RTS games (particularly starcraft along with some contemporary shooter games) popularized the practice of saying 'gg' (good game) 'glhf' (good luck have fun) as a form of sportsmanship and the derivative bad manner versions such as 'ggez' (good game easy) </li>
                 <li>RTS-derived terms like 'Zerging' and 'cheesing' to the gaming vernacular - 'zerging/zerg rushing' usually refers to swarming objectives or enemies with numbers in any given game context as one would as a zerg player in starcraft. 'cheesing' refers to Konglish word that twisted the English word cheat to usually refer any cheap, dirty strategies that leave the victim of said tactics usually feeling angry and/or disappointed.</li>
@@ -57,11 +71,11 @@
             </ul>
         </div>
         <div class="col-span-1 md:col-span-full aspect-video">
-            <iframe class="h-full w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/rhcW6Bfc49A"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p class="col-span-1 md:col-span-full text-center">Placeholder accompanying text for video</p>
+            <p class="col-span-1 md:col-span-full text-center bg-slate-100 font-medium p-1">Marine's Regret by Pineapple. I believe the chorus is also sung by several starcraft pro players at the time. I believe this was televised as an anti-war message in support of those who suffered North Korean bombardment at Yeonpyeong Island in early 2010s.</p>
         </div>
     </div>
     <div class="col-span-1 md:col-span-4 flex justify-center">

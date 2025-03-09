@@ -42,15 +42,21 @@
             url('../public/day9-mlg-group.webp') bottom no-repeat;
     background-size:
        contain, cover, contain;
-    /*background-image:*/
-    /*    url('../public/SSL_group_select.webp'),*/
-    /*    url('../public/sc2-kr-2019-group.webp');*/
-    /*    !*url('/day9-mlg-group.webp');*!*/
-    /*background-repeat:*/
-    /*    no-repeat, no-repeat, no-repeat;*/
-    /*background-size:*/
-    /*    contain, contain, contain;*/
     background-color:
             rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+
+
+#starcraft2-body {
+    background-color:
+            rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+
+
+#sc-body {
+    background-color:
+            rgba(255,255,255,0.4);
     background-blend-mode: lighten;
 }
