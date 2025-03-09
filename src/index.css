@@ -9,8 +9,22 @@
 
 #rts-origins-body {
     background-image:
-    url(../public/risk-map.webp);
+    url(/risk-map.webp);
     background-color:
     rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+}
+
+#rts-about-body {
+    background-image:
+            url('/dune-bg-what-is.webp');
+    background-color:
+            rgba(255,255,255,0.2);
+    background-blend-mode: lighten;
+}
+
+#warcraft3-body {
+    background-color:
+            rgba(255,255,255,0.4);
     background-blend-mode: lighten;
 }

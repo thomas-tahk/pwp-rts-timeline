@@ -8,7 +8,7 @@
     <title>What is RTS?</title>
     <link rel="stylesheet" href="/src/index.css"/>
 </head>
-<body class="bg-gray-50 flex flex-col">
+<body class="bg-repeat-round flex flex-col" id="rts-about-body">
 <section class="container mx-auto px-10">
     <!--going back to timeline-->
     <div class="flex justify-center fixed left-0 top-1/2 px-2">
@@ -17,7 +17,7 @@
             <img class="h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/BackButton.png" alt="Go Back to Timeline">
         </a>
     </div>
-    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10"
+    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10 place-items-center"
          id="what-is-rts">
         <div class="col-span-1 md:col-span-4 flex flex-col">
             <h1 class="text-6xl text-center">What is an RTS?</h1>
@@ -26,30 +26,30 @@
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
                  src="/dune2-screenshot.webp" alt="dune2 battle screenshot">
-            <p class="col-span-1 md:col-span-2 text-center font-medium">Dune 2 in-game, mid-battle</p>
+            <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Dune 2 in-game, mid-battle</p>
         </div>
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="placeholder2">
-            <p class="col-span-1 md:col-span-2 text-center font-medium">Placeholder accompanying text for Image 2 of gallery</p>
+                 src="/dune2.house.atreides.webp" alt="dune2 mission briefing">
+            <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Dune 2 mission briefing for part of campaign</p>
         </div>
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="placeholder3">
-            <p class="col-span-1 md:col-span-2 text-center font-medium">Placeholder accompanying text for Image 3 of gallery</p>
+                 src="/AoE2_JoandeArc_map.webp" alt="placeholder3">
+            <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">Very common campaign feature to have a map like here in a AOE2 campaign</p>
         </div>
         <div class="col-span-1 md:col-span-2">
             <img class="h-auto max-w-full rounded-lg"
-                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="placeholder4">
-            <p class="col-span-1 md:col-span-2 text-center font-medium">Placeholder accompanying text for Image 4 of gallery</p>
+                 src="/aoe2-rts-resource.webp" alt="aoe2 rts resources">
+            <p class="col-span-1 md:col-span-2 text-center font-medium bg-slate-50">One of many examples of various resources that comprise an RTS game - AOE2</p>
         </div>
-        <div class="col-span-full text-center text-lg">
+        <div class="col-span-full text-center md:text-lg bg-slate-200 rounded-lg p-4">
             <h3 class="text-2xl font-semibold">What is a Real Time Strategy game?</h3>
             <p class="text-left indent-6 font-medium">
                 Real Time Strategy was coined by co-founder and president of Westwood Studios at the time, Brett Sperry, as a term used to market Dune 2 (1992). Dune 2 is the first instance of what is recognizably a modern RTS game. These features include: </p>
             <ul class="text-left indent-6 font-medium">
                 <li>
-                    Real-time - Real-time strategy games operate without turns, with players making simultaneous decisions in a constantly evolving battlefield.
+                    Real-time - Real-time strategy games operate without turns, with players (or AI) making simultaneous decisions in a constantly evolving battlefield.
                 </li>
                 <li>
                     Totality of Control - RTS games are defined by the player's complete control over every element of their forces. This management encompasses resource collection, construction, unit production, and tactical deployment—commonly divided into <strong>"macro"</strong> (economy and production) and <strong>"micro"</strong> (precise unit control).
@@ -57,16 +57,19 @@
                 <li>
                     Isometric view (not necessary but practical) - RTS typically features isometric view that provides a comprehensive bird's-eye perspective, which helps the player oversee the battlefield and be immersed in a military commander-like experience.
                 </li>
+                <li>
+                    Different modes of play - It is vital for RTS to give players different ways to play, often one gets started on a new RTS game by playing the campaign as a way to get familiar with the game's mechanics, systems, and to enjoy the narrative that the devs have to tell. Often the mode(s) that endure the longest with the playerbase are competitive modes and various user-customized modes from modding, map-making, custom scenarios, etc.
+                </li>
             </ul>
             <p class="text-left indent-6 font-medium">While victory officially comes through destroying your opponent's base or forces, success often hinges on creating situations where opponents believe defeat is inevitable, prompting surrender before actual elimination occurs.
             </p>
         </div>
-        <div class="col-span-1 md:col-span-full aspect-video">
-            <iframe class="h-full w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
+        <div class="col-span-1 md:col-span-full aspect-video w-full h-full">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/BffutMJxM2k?si=L6uZCFp73jMrNMm1&amp;start=665"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p class="col-span-1 md:col-span-full text-center">Placeholder accompanying text for video</p>
+            <p class="col-span-1 md:col-span-full text-center bg-slate-100">Sean Plott aka Day[9] on the goal of an RTS game - 11:05 - 11:13 is both hilarious and poignant</p>
         </div>
 
     </div>
