@@ -7,3 +7,10 @@
     width: 100%;
 }
 
+#rts-origins-body {
+    background-image:
+    url(../public/risk-map.webp);
+    background-color:
+    rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+}

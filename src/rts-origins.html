@@ -8,7 +8,7 @@
     <title>RTS Origins</title>
     <link rel="stylesheet" href="/src/index.css"/>
 </head>
-<body class="bg-gray-50 flex flex-col">
+<body id="rts-origins-body" class="bg-no-repeat bg-cover flex flex-col">
 <section class="container mx-auto px-10">
     <!--going back to timeline-->
     <div class="flex justify-center fixed left-0 top-1/2 px-2">
@@ -17,33 +17,33 @@
             <img class="h-auto w-14 sm:w-16 md:w-24 lg:w-32 xl:w-40" src="/BackButton.png" alt="Go Back to Timeline">
         </a>
     </div>
-    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10"
+    <div class="pl-14 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-40 grid gap-6 grid-cols-1 md:grid-cols-4 mt-10 mb-10 place-items-center"
          id="rts-origins">
         <div class="col-span-1 md:col-span-4 flex flex-col">
             <h1 class="text-6xl text-center z-1">Origins of RTS</h1>
             <div class="border-b border-solid border-4 border-green-300"></div>
         </div>
-        <div class="col-span-1 md:col-span-2">
+        <div class="col-span-1 md:col-span-2 shadow-md">
             <img class="h-auto max-w-full rounded-lg"
-                 src="/war-of-the-ring-tabletop.webp">
+                 src="/war-of-the-ring-tabletop.webp" alt="war of the ring">
             <p class="col-span-1 md:col-span-2 text-center font-medium">War of the Ring - tabletop war game</p>
         </div>
-        <div class="col-span-1 md:col-span-2">
+        <div class="col-span-1 md:col-span-2 shadow-md">
             <img class="h-auto max-w-full rounded-lg"
                  src="/Civ-is-not-rts.webp" alt="Civ is not RTS game, it is 4X strategy">
             <p class="col-span-1 md:col-span-2 text-center font-medium">Civilization III - 4x Strategy -</p>
         </div>
-        <div class="col-span-1 md:col-span-2">
+        <div class="col-span-1 md:col-span-2 shadow-md">
             <img class="h-auto max-w-full rounded-lg"
                  src="/ancient-art-of-war-1984.png" alt="Ancient Art of War 1984">
             <p class="col-span-1 md:col-span-2 text-center font-medium">Ancient Art of War 1984 - pre-RTS strategy game</p>
         </div>
-        <div class="col-span-1 md:col-span-2">
+        <div class="col-span-1 md:col-span-2 shadow-md">
             <img class="h-auto max-w-full rounded-lg"
                  src="/herzog-zwei-1989.webp" alt="Herzog Zwei 1989">
             <p class="col-span-1 md:col-span-2 text-center font-medium">Herzog Zwei 1989 - pre-RTS strategy game</p>
         </div>
-        <div class="col-span-full text-center text-lg">
+        <div class="col-span-full text-center md:text-lg bg-slate-200 rounded-lg p-4">
             <h3 class="text-2xl font-semibold">RTS Origins: Where does it come from?</h3>
             <p class="text-left indent-6 font-medium">
                 The RTS genre was birthed into a world of a post Cold War era, when the concept of personal computers were fresh from some of earliest mass market iterations by Apple and Microsoft, and when video games were still on the mend from the 1983 crash and piggybacking off the success of Nintendo's early consoles.</p>
@@ -55,11 +55,8 @@
                 Gaming historians debate the genre's exact origins, with several titles between 1979-1985 showing early RTS elements. Herzog Zwei (1989) demonstrated primitive resource management and unit control, but none matched (nor was defined) as an RTS game until the release of Dune II in 1992.
             </p>
         </div>
-        <div class="col-span-1 md:col-span-full aspect-video">
-            <iframe class="h-full w-full" src="https://www.youtube.com/embed/pr898xtYUjk"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="col-span-full aspect-video shadow-lg">
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/IEXKZ-dzZJI?si=NyGP0Ptqba_RcsH2&amp;end=150" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <p class="col-span-1 md:col-span-full text-center">Placeholder accompanying text for video</p>
         </div>
     </div>
@@ -70,6 +67,7 @@
                  alt="arrow button to take to next showcase section">
         </a>
     </div>
+
 </section>
 <script type="module" src="./main.js"></script>
 </body>
