@@ -26,4 +26,4 @@
         - name: Deploy to server
           run: |
             ssh-keyscan -H rts-timeline.info >> ~/.ssh/known_hosts 
-            scp -r ./dist/* gkephart@rts-timeline.info:/var/www/rts-timeline.info/html
+            scp -r ./dist/* ttahk@rts-timeline.info:/var/www/rts-timeline.info/html
