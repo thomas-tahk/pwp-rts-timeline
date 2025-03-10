@@ -23,13 +23,13 @@
     background-blend-mode: lighten;
 }
 
-#warcraft3-body, #cnc-body, #sc-body {
+#warcraft3-body, #cnc-body {
     background-color:
             rgba(255,255,255,0.4);
-    background-blend-mode: lighten;
+
 }
 
-#starcraft2-body, #legacy-body {
+#sc-body, #starcraft2-body, #legacy-body {
     background-color:
             rgba(255,255,255,0.3);
     background-blend-mode: lighten;
@@ -56,6 +56,7 @@
 
 :root {
     --spaceblue: rgb(42,84,125, 0.7);
+    --lightspace: rgb(107, 220, 248, 0.8);
     --gold: #ffb338;
     --light-shadow: #77571d;
     --dark-shadow: #3e2904;
@@ -63,7 +64,7 @@
 }
 
 #timeline h1 {
-    background: var(--spaceblue);
+    background: var(--lightspace);
     -webkit-text-stroke: 1px black;
 }
 
