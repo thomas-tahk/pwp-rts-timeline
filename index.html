@@ -6,18 +6,17 @@
     <title>RTS Timeline</title>
     <link rel="stylesheet" href="/src/index.css" type="text/css"/>
 </head>
-<body class="bg-gray-50 flex flex-col">
+<body id="timeline-body" class="bg-gray-50 flex flex-col  bg-[url('/timeline-background.webp')] bg-contain bg-repeat-round">
 <section id="timeline" class="container mx-auto px-4 py-8 max-w-6xl">
-    <h1 class="text-5xl font-bold text-center mb-10 text-blue-600">
+    <h1 class="text-4xl font-bold text-center mb-10 text-blue-600 drop-shadow-[0_4.4px_2.4px_rgba(0,0,0,0.8)]">
         A Brief and Biased History of Real Time Strategy Games
     </h1>
-
     <!-- Origins of RTS section -->
     <div class="flex flex-no-wrap lg:flex-row flex-row-reverse justify-evenly pt-6">
         <!-- left col -->
         <div class="w-2/5 sm:2/3 flex-none p-2">
             <!--change color in border and bg below-->
-            <div class="text-gray-700 lg:float-right float-left border-2 rounded border-green-200 bg-green-200 shadow-lg p-4">
+            <div class="text-gray-700 lg:float-right float-left border-2 rounded border-green-200 bg-gradient-to-r from-gray-300 to-gray-500 shadow-lg p-4">
                 <div class="timeline-card">
                     <div class="bg-white p-4 rounded-lg shadow-md flex-grow">
                         <h3 class="font-bold text-xl mb-2">Origins of RTS</h3>
@@ -31,10 +30,13 @@
         </div>
         <!--Vertical line column-->
         <div class="w-1/5 sm:1/3 flex-none float-right">
-            <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
+            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
                 <!-- beginning dot -->
-                <div class="bg-blue-800 w-6 h-6 rounded-full -ml-3 -mt-3"></div>
-                <a href="src/rts-origins.html" class="inline-block h-30 w-30 mt-10 bg-indigo-400 hover:bg-indigo-600 text-white font-bold rounded-full -ml-15" title="1962 Waterloo">
+                <div class="metal-wrapper"></div>
+                    <div class="metal-bg"></div>
+                    <div class="metal-fg w-6 h-6 rounded-full -ml-3 -mt-3"></div>
+
+                <a href="src/rts-origins.html" class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="1962 Waterloo">
                     <img src="/rts-origins.png" alt="1962 Waterloo Board Game" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -51,9 +53,9 @@
         </div>
         <!--line column-->
         <div class="w-1/5 sm:1/3 flex-none float-left">
-            <div class="bg-indigo-400 p-1 h-full w-1 mx-auto">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
                 <a href="src/what-is-rts.html"
-                   class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="A screenshot of 1992 Dune 2">
+                   class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="A screenshot of 1992 Dune 2">
                     <img src="/dune2-lameposter.webp" alt="Dune 2 1992 Screenshot" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -99,8 +101,8 @@
         </div>
         <!--Vertical line column-->
         <div class="w-1/5 sm:1/3 flex-none float-right">
-            <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
-                <a href="src/warcraft3.html" class="inline-block h-30 w-30 mt-16 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="Warcraft 3 Frozen Throne">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
+                <a href="src/warcraft3.html" class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="Warcraft 3 Frozen Throne">
                     <img src="/Warcraft3-Icon.webp" alt="Warcraft 3" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -117,9 +119,9 @@
         </div>
         <!--line column-->
         <div class="w-1/5 sm:1/3 flex-none float-left">
-            <div class="bg-indigo-400 p-1 h-full w-1 mx-auto">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
                 <a href="src/commandandconquer.html"
-                   class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="RedAlert3 exe icon">
+                   class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="RedAlert3 exe icon">
                     <img src="/CnC_Red_Alert_3_Icon.webp" alt="Red Alert Icon" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -170,8 +172,8 @@
         </div>
         <!--Vertical line column-->
         <div class="w-1/5 sm:1/3 flex-none float-right">
-            <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
-                <a href="src/ageofempires.html" class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="AOE2 DE Logo">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
+                <a href="src/ageofempires.html" class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="AOE2 DE Logo">
                     <img src="/AoEII_icon.webp" alt="AOE2 Logo" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -188,9 +190,9 @@
         </div>
         <!--line column-->
         <div class="w-1/5 sm:1/3 flex-none float-left">
-            <div class="bg-indigo-400 p-1 h-full w-1 mx-auto">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
                 <a href="src/starcraft.html"
-                   class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="A screenshot of 1992 Dune 2">
+                   class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="A screenshot of 1992 Dune 2">
                     <img src="/SC-BW-boxart.webp" alt="Queen of Blades" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -230,9 +232,9 @@
         </div>
         <!--Vertical line column-->
         <div class="w-1/5 sm:1/3 flex-none float-right">
-            <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
                 <a href="src/starcraft2.html"
-                   class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="SC2 Raynor">
+                   class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="SC2 Raynor">
                     <img src="/This_Is_Jimmy.webp" alt="SC2 Raynor" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -249,8 +251,8 @@
         </div>
         <!--line column-->
         <div class="w-1/5 sm:1/3 flex-none float-left">
-            <div class="bg-indigo-400 p-1 h-full w-1 mx-auto">
-                <a href="src/esports.html" class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15" title="Once Upon an ESport">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
+                <a href="src/esports.html" class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15" title="Once Upon an ESport">
                     <img src="/CasterJunEarly.webp" alt="EsportsHistory" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -291,8 +293,8 @@
         </div>
         <!--Vertical line column-->
         <div class="w-1/5 sm:1/3 flex-none float-right">
-            <div class="bg-blue-500 p-1 h-full w-1 mx-auto">
-                <a href="src/legacy.html" class="inline-block h-30 w-30 mt-10 bg-blue-300 hover:bg-blue-600 text-white font-bold rounded-full -ml-15">
+            <div class="bg-[var(--gold)] p-1 h-full w-1 mx-auto">
+                <a href="src/legacy.html" class="inline-block h-30 w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full -ml-15">
                     <img src="/Mengsk_legacy_icon.webp" alt="regal legacy icon: Mengsk" class="h-full w-full object-fill p-1 border-none rounded-full">
                 </a>
             </div>
@@ -309,7 +311,7 @@
         </div>
         <!-- actual arrow -->
         <div class="w-1/5 sm:1/3 flex-none float-left">
-            <div class="mx-auto h-0 w-0 border-x-8 border-x-transparent border-t-[60px] border-t-indigo-600"></div>
+            <div class="mx-auto h-0 w-0 border-x-8 border-x-transparent border-t-[60px] border-t-[var(--gold)]"></div>
         </div>
         <!--right column-->
         <div class="w-2/5 sm:2/3 flex-none p-2">
@@ -322,31 +324,31 @@
     <h3 class="font-bold text-xl mb-4">CREDITS</h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs place-items-center justify-items-center">
         <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://www.fandom.com/articles/starcraft-top-moments" class="hover:text-blue-500">Starcraft Top Moments - Fandom</a></li>
-            <li class="hover:text-blue-500">Perplexity for research assistance and some text content aid</li>
-            <li><a href="https://namu.wiki/" class="hover:text-blue-500">Namu Wiki for Korean info and eSports photos</a></li>
-            <li><a href="https://search.brave.com/images" class="hover:text-blue-500">Brave's Image Search</a></li>
-            <li><a href="https://liquipedia.net/" class="hover:text-blue-500">Liquipedia/Team Liquid - Best English source for fan-based eSports and especially Starcraft information</a></li>
+            <li><a href="https://www.fandom.com/articles/starcraft-top-moments" class="hover:text-blue-500 active:text-blue-500">Starcraft Top Moments - Fandom</a></li>
+            <li class="hover:text-blue-500 active:text-blue-500">Perplexity for research assistance and some text content aid</li>
+            <li><a href="https://namu.wiki/" class="hover:text-blue-500 active:text-blue-500">Namu Wiki for Korean info and eSports photos</a></li>
+            <li><a href="https://search.brave.com/images" class="hover:text-blue-500 active:text-blue-500">Brave's Image Search</a></li>
+            <li><a href="https://liquipedia.net/" class="hover:text-blue-500 active:text-blue-500">Liquipedia/Team Liquid - Best English source for fan-based eSports and especially Starcraft information</a></li>
         </ul>
         <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://blizzard.gamespress.com/StarCraft" class="hover:text-blue-500">Blizzard Press Kit</a></li>
-            <li><a href="https://www.youtube.com/channel/UCaxar6TBM-94_ezoS00fLkA" class="hover:text-blue-500">Day[9] - Starcraft content</a></li>
-            <li><a href="https://www.pcgamer.com/starcraft-remastered-hasnt-changed-how-korea-feels-about-starcraft/" class="hover:text-blue-500">PC Gamer Article, mainly for the image</a></li>
-            <li><a href="https://www.youtube.com/watch?v=ANdktCsPnIQ" class="hover:text-blue-500">That guy from IEM Shanghai 2016</a></li>
-            <li><a href="https://sietch.net/Downloads/The_History_of_Real_Time_Strategy.pdf" class="hover:text-blue-500">GameReplays.Org's The History of Real Time Strategy</a></li>
+            <li><a href="https://blizzard.gamespress.com/StarCraft" class="hover:text-blue-500 active:text-blue-500">Blizzard Press Kit</a></li>
+            <li><a href="https://www.youtube.com/channel/UCaxar6TBM-94_ezoS00fLkA" class="hover:text-blue-500 active:text-blue-500">Day[9] - Starcraft content</a></li>
+            <li><a href="https://www.pcgamer.com/starcraft-remastered-hasnt-changed-how-korea-feels-about-starcraft/" class="hover:text-blue-500 active:text-blue-500">PC Gamer Article, mainly for the image</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ANdktCsPnIQ" class="hover:text-blue-500 active:text-blue-500">That guy from IEM Shanghai 2016</a></li>
+            <li><a href="https://sietch.net/Downloads/The_History_of_Real_Time_Strategy.pdf" class="hover:text-blue-500 active:text-blue-500">GameReplays.Org's The History of Real Time Strategy</a></li>
         </ul>
         <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://www.wired.com/story/fall-and-rise-real-time-strategy-games/" class="hover:text-blue-500">Wired Article </a></li>
-            <li><a href="https://ageofempires.fandom.com/" class="hover:text-blue-500">Age of Empires Fandom for most AOE assets</a></li>
-            <li><a href="https://arstechnica.com/gaming/2017/09/build-gather-brawl-repeat-the-history-of-real-time-strategy-games/" class="hover:text-blue-500">Ars Technica - history piece</a></li>
-            <li><a href="https://www.cdw.com/content/cdw/en/articles/hardware/history-of-esports.html" class="hover:text-blue-500">CDW's bullet point timeline </a></li>
-            <li><a href="https://www.youtube.com/@TVOngamenet/videos" class="hover:text-blue-500">OGN Vods (OnGameNet) - some of the better remaining television broadcast archives of Starcraft Broodwar</a></li>
+            <li><a href="https://www.wired.com/story/fall-and-rise-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Wired Article </a></li>
+            <li><a href="https://ageofempires.fandom.com/" class="hover:text-blue-500 active:text-blue-500">Age of Empires Fandom for most AOE assets</a></li>
+            <li><a href="https://arstechnica.com/gaming/2017/09/build-gather-brawl-repeat-the-history-of-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Ars Technica - history piece</a></li>
+            <li><a href="https://www.cdw.com/content/cdw/en/articles/hardware/history-of-esports.html" class="hover:text-blue-500 active:text-blue-500">CDW's bullet point timeline </a></li>
+            <li><a href="https://www.youtube.com/@TVOngamenet/videos" class="hover:text-blue-500 active:text-blue-500">OGN Vods (OnGameNet) - some of the better remaining television broadcast archives of Starcraft Broodwar</a></li>
         </ul>
         <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://tailwindcss.com/docs" class="hover:text-blue-500">Tailwind for all the CSS</a></li>
-            <li><a href="https://flowbite.com/" class="hover:text-blue-500">Flowbite - for mainly the galleries</a></li>
-            <li><a href="https://developers.google.com/youtube/iframe_api_reference" class="hover:text-blue-500">Youtube's iframe API to get my videos working even in localhost</a></li>
-            <li class="hover:text-blue-500">Thanks to all the individual youtube channels who captured some great moments in RTS history for me to either grab a screen or embed into this project.</li>
+            <li><a href="https://tailwindcss.com/docs" class="hover:text-blue-500 active:text-blue-500">Tailwind for all the CSS</a></li>
+            <li><a href="https://flowbite.com/" class="hover:text-blue-500 active:text-blue-500">Flowbite - for mainly the galleries</a></li>
+            <li><a href="https://developers.google.com/youtube/iframe_api_reference" class="hover:text-blue-500 active:text-blue-500">Youtube's iframe API that was kinda confusing me until I realized I forgot to turn off VPN</a></li>
+            <li class="hover:text-blue-500 active:text-blue-500">Thanks to all the individual youtube channels who captured some great moments in RTS history for me to either grab a screen or embed into this project.</li>
         </ul>
     </div>
 
@@ -356,10 +358,10 @@
 <footer class="block bg-sky-100 p-8">
     <div class="flex justify-center space-x-8">
         <a href="https://github.com/thomas-tahk">
-            <img src="/github-mark.png" alt="GitHub" class="w-12 h-12 hover:bg-sky-300">
+            <img src="/github-mark.png" alt="GitHub" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
         </a>
         <a href="https://www.linkedin.com/in/thomas-tahk-dev/">
-            <img src="/LI-In-Bug.png" alt="LinkedIn" class="w-12 h-12 hover:bg-sky-300">
+            <img src="/LI-In-Bug.png" alt="LinkedIn" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
         </a>
     </div>
 </footer>

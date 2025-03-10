@@ -23,17 +23,24 @@
     background-blend-mode: lighten;
 }
 
-#warcraft3-body {
+#warcraft3-body, #cnc-body, #sc-body {
     background-color:
             rgba(255,255,255,0.4);
     background-blend-mode: lighten;
 }
 
-#cnc-body {
+#starcraft2-body, #legacy-body {
     background-color:
-            rgba(255,255,255,0.4);
+            rgba(255,255,255,0.3);
     background-blend-mode: lighten;
 }
+
+#timeline-body {
+    background-color:
+            rgba(255,255,255,0.1);
+    background-blend-mode: lighten;
+}
+
 
 #esports-body {
     background:
@@ -47,16 +54,44 @@
     background-blend-mode: lighten;
 }
 
-
-#starcraft2-body {
-    background-color:
-            rgba(255,255,255,0.3);
-    background-blend-mode: lighten;
+:root {
+    --spaceblue: rgb(42,84,125, 0.7);
+    --gold: #ffb338;
+    --light-shadow: #77571d;
+    --dark-shadow: #3e2904;
+    --before-hover: #ffe7c1;
 }
 
+#timeline h1 {
+    background: var(--spaceblue);
+    -webkit-text-stroke: 1px black;
+}
 
-#sc-body {
-    background-color:
-            rgba(255,255,255,0.4);
-    background-blend-mode: lighten;
+.metal-wrapper {
+    display: grid;
+    grid-template-areas: 'overlap';
+    place-content: center;
+}
+
+.metal-wrapper > div {
+    grid-area: overlap;
+}
+
+.metal-bg {
+    background-image: repeating-linear-gradient( 105deg,
+    var(--gold) 0% ,
+    var(--dark-shadow) 5%,
+    var(--gold) 12%);
+    color: transparent;
+    filter: drop-shadow(5px 15px 15px black);
+    transform: scaleY(1.05);
+    transform-origin: top;
+}
+.metal-fg {
+    background-image: repeating-linear-gradient( 5deg,
+    var(--gold) 0% ,
+    var(--light-shadow) 23%,
+    var(--gold) 31%);
+    color: #1e2127;
+    transform: scale(1);
 }
