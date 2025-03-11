@@ -96,3 +96,19 @@
     color: #1e2127;
     transform: scale(1);
 }
+
+/* some mobile specific effects */
+@media (max-width: 768px) {
+    .timeline-card a:active {
+        background-color: rgba(59, 130, 246, 0.1); /* Light blue background on tap */
+    }
+
+    .timeline-card a:focus {
+        outline: 2px solid #3b82f6; /* Thicker outline on focus for mobile */
+    }
+}
+
+/* Make sure tap targets are large enough */
+.timeline-card h3 {
+    min-height: 44px; /* Minimum recommended touch target size */
+}
