@@ -23,16 +23,22 @@
     background-blend-mode: lighten;
 }
 
-#warcraft3-body, #cnc-body {
+#warcraft3-body, #cnc-body, #sc-body, #starcraft2-body, #legacy-body {
     background-color:
-            rgba(255,255,255,0.4);
-
+            rgba(255,255,255,0.2);
+    background-blend-mode: overlay;
+    position: relative;
 }
 
-#sc-body, #starcraft2-body, #legacy-body {
-    background-color:
-            rgba(255,255,255,0.3);
-    background-blend-mode: lighten;
+#warcraft3-body::before, #cnc-body::before, #sc-body::before, #starcraft2-body::before, #legacy-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+    z-index: -1;
 }
 
 #timeline-body {
@@ -175,4 +181,23 @@ p {
 
 .showcase-nav-button:hover img {
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.image-container {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
