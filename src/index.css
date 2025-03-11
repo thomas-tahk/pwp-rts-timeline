@@ -154,3 +154,25 @@ p {
     line-height: 1.7;
     font-size: 1.05rem;
 }
+
+/*showcase nav button styles*/
+.showcase-nav-button {
+    transform-origin: center;
+}
+
+.showcase-nav-label {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.showcase-nav-button:hover .showcase-nav-label {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.showcase-nav-button:hover img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
