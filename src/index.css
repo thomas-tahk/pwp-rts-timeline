@@ -112,3 +112,16 @@
 .timeline-card h3 {
     min-height: 44px; /* Minimum recommended touch target size */
 }
+
+.better-header {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+}
+
+.better-header-underline {
+    height: 4px;
+    background: linear-gradient(90deg, rgba(52, 211, 153, 0.2), rgba(52, 211, 153, 1) 50%, rgba(52, 211, 153, 0.2));
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
