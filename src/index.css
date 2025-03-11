@@ -125,3 +125,32 @@
     border-radius: 2px;
     margin-bottom: 1.5rem;
 }
+
+.main-text-card  {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.main-text-title {
+    color: #1e40af; /* A richer blue that ties into your existing color scheme */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3 {
+    letter-spacing: 0.015em;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Improve readability of main text blocks */
+.mt-2.md\:mt-4.font-semibold.text-gray-700 {
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
