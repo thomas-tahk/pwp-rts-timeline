@@ -184,10 +184,18 @@ p {
 }
 
 .image-container {
+    border-style: none;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container + p {
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .image-container:hover {
@@ -195,9 +203,14 @@ p {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem 0.5rem 0 0;
+
+
+.caption-style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0.5rem 0.75rem;
+    background-color: #f1f5f9; /* slate-100 */
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: #4b5563; /* gray-600 */
+    border-radius: 0 0 0.5rem 0.5rem;
 }
