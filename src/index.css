@@ -151,6 +151,14 @@ body {
     color: #333;
 }
 
+#timeline-body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#timeline-body h3 {
+    font-family: 'Exo 2', serif;
+}
+
 h1, h2, h3 {
     letter-spacing: 0.015em;
 }
