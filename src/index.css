@@ -11,17 +11,34 @@
     width: 100%;
 }
 
+/*background and fonts*/
+#timeline-body {
+    font-family: 'Open Sans', sans-serif;
+    background-color:
+            rgba(255,255,255,0.1);
+    background-blend-mode: lighten;
+}
+
+#timeline-body h3 {
+    font-family: 'Exo 2', serif;
+}
+
 #rts-origins-body {
     background-image:
-    url('../public/risk-map.webp');
+    url('/risk-map.webp');
     background-color:
     rgba(255,255,255,0.5);
     background-blend-mode: lighten;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#rts-origins-body p {
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 #rts-about-body {
     background-image:
-            url('../public/dune-bg-what-is.webp');
+            url('/dune-bg-what-is.webp');
     background-color:
             rgba(255,255,255,0.2);
     background-blend-mode: lighten;
@@ -45,13 +62,6 @@
     z-index: -1;
 }
 
-#timeline-body {
-    background-color:
-            rgba(255,255,255,0.1);
-    background-blend-mode: lighten;
-}
-
-
 #esports-body {
     background:
             url('../public/sc2-kr-2019-group.webp') top center no-repeat,
@@ -73,10 +83,6 @@
     --before-hover: #ffe7c1;
 }
 
-/*#timeline h1 {*/
-/*    background: var(--lightspace);*/
-/*    -webkit-text-stroke: 1px black;*/
-/*}*/
 
 .metal-wrapper {
     display: grid;
@@ -149,14 +155,6 @@
 body {
     line-height: 1.6;
     color: #333;
-}
-
-#timeline-body {
-    font-family: 'Open Sans', sans-serif;
-}
-
-#timeline-body h3 {
-    font-family: 'Exo 2', serif;
 }
 
 h1, h2, h3 {
