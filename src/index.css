@@ -36,12 +36,26 @@
     font-family: 'IBM Plex Mono', monospace;
 }
 
+@font-face {
+    font-family: 'Arrakis';
+    src: url('/fonts/Arrakis.ttf') format('truetype');
+    /* If you have other formats, add them here */
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+    /*font-display: swap;*/
+}
+
 #rts-about-body {
     background-image:
             url('/dune-bg-what-is.webp');
     background-color:
             rgba(255,255,255,0.2);
     background-blend-mode: lighten;
+    font-family: 'Arrakis', sans-serif;
+}
+
+#rts-about-body p, span {
+    font-family: Saira, serif;
 }
 
 #warcraft3-body, #cnc-body, #sc-body, #starcraft2-body, #legacy-body {
