@@ -1,6 +1,6 @@
 module.exports = {
-  plugins: {
-    "@tailwindcss/postcss": {},
-    'flowbite/plugin': {}
-  }
-}
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+    },
+};

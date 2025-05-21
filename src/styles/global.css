@@ -1,0 +1,325 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Audiowide&family=Black+Han+Sans&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Electrolize&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&family=Fondamento:ital@0;1&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&family=Wallpoet&display=swap');
+
+
+/* vanilla custom css styles */
+.timeline-card {
+    display: flex;
+    width: 100%;
+}
+
+/*background and fonts*/
+#timeline-body {
+    font-family: 'Open Sans', sans-serif;
+    background-color:
+            rgba(255,255,255,0.1);
+    background-blend-mode: lighten;
+}
+
+#timeline-body h3 {
+    font-family: 'Exo 2', serif;
+}
+
+#rts-origins-body {
+    background-image:
+            url('/risk-map.webp');
+    background-color:
+            rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#rts-origins-body p {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+@font-face {
+    font-family: 'Arrakis';
+    src: url('/fonts/Arrakis.ttf') format('truetype');
+    /* If you have other formats, add them here */
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+    /*font-display: swap;*/
+}
+
+#rts-about-body {
+    background-image:
+            url('/dune-bg-what-is.webp');
+    background-color:
+            rgba(255,255,255,0.2);
+    background-blend-mode: lighten;
+    font-family: 'Arrakis', sans-serif;
+}
+
+#rts-about-body p, span {
+    font-family: Saira, serif;
+}
+
+#warcraft3-body, #cnc-body, #sc-body, #starcraft2-body, #legacy-body {
+    background-color:
+            rgba(255,255,255,0.2);
+    background-blend-mode: overlay;
+    position: relative;
+}
+
+#warcraft3-body::before, #cnc-body::before, #sc-body::before, #starcraft2-body::before, #legacy-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+    z-index: -1;
+}
+
+#esports-body {
+    background:
+            url('../public/sc2-kr-2019-group.webp') top center no-repeat,
+            url('../public/SSL_group_select.webp') center no-repeat,
+            url('../public/day9-mlg-group.webp') bottom no-repeat;
+    background-size:
+            contain, cover, contain;
+    background-color:
+            rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+
+:root {
+    --spaceblue: rgb(42,84,125, 0.7);
+    --lightspace: rgb(107, 220, 248, 0.8);
+    --gold: #ffb338;
+    --light-shadow: #77571d;
+    --dark-shadow: #3e2904;
+    --before-hover: #ffe7c1;
+}
+
+
+.metal-wrapper {
+    display: grid;
+    grid-template-areas: 'overlap';
+    place-content: center;
+}
+
+.metal-wrapper > div {
+    grid-area: overlap;
+}
+
+.metal-bg {
+    background-image: repeating-linear-gradient( 105deg,
+    var(--gold) 0% ,
+    var(--dark-shadow) 5%,
+    var(--gold) 12%);
+    color: transparent;
+    filter: drop-shadow(5px 15px 15px black);
+    transform: scaleY(1.05);
+    transform-origin: top;
+}
+.metal-fg {
+    background-image: repeating-linear-gradient( 5deg,
+    var(--gold) 0% ,
+    var(--light-shadow) 23%,
+    var(--gold) 31%);
+    color: #1e2127;
+    transform: scale(1);
+}
+
+/* some mobile specific effects */
+@media (max-width: 768px) {
+    .timeline-card a:active {
+        background-color: rgba(59, 130, 246, 0.1); /* Light blue background on tap */
+    }
+
+    .timeline-card a:focus {
+        outline: 2px solid #3b82f6; /* Thicker outline on focus for mobile */
+    }
+}
+
+/* Make sure tap targets are large enough */
+.timeline-card h3 {
+    min-height: 44px; /* Minimum recommended touch target size */
+}
+
+.better-header {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+}
+
+.better-header-underline {
+    height: 4px;
+    background: linear-gradient(90deg, rgba(52, 211, 153, 0.2), rgba(52, 211, 153, 1) 50%, rgba(52, 211, 153, 0.2));
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.main-text-card  {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.main-text-title {
+    color: #1e40af; /* A richer blue that ties into your existing color scheme */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3 {
+    letter-spacing: 0.015em;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Improve readability of main text blocks */
+.mt-2.md\:mt-4.font-semibold.text-gray-700 {
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/*showcase nav button styles*/
+.showcase-nav-button {
+    transform-origin: center;
+}
+
+.showcase-nav-label {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.showcase-nav-button:hover .showcase-nav-label {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.showcase-nav-button:hover img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.image-container {
+    border-style: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container + p {
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.caption-style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0.5rem 0.75rem;
+    background-color: #f1f5f9; /* slate-100 */
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: #4b5563; /* gray-600 */
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+@font-face {
+    font-family: 'StarCraft';
+    src: url('/fonts/starcraft.ttf') format('truetype');
+    /* If you have other formats, add them here */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.starcraft-title-container {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    border-top: 2px solid rgba(59, 130, 246, 0.5);
+    border-bottom: 2px solid rgba(59, 130, 246, 0.5);
+    position: relative;
+}
+
+.starcraft-title {
+    font-family: 'StarCraft', sans-serif;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    padding: 0.25em 0;
+    background: linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            #e2e2e2 10%,
+            #b0b0b0 45%,
+            #ffffff 50%,
+            #9a9a9a 55%,
+            #c8c8c8 90%,
+            #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.4),
+            0 -1px 0 rgba(0, 0, 0, 0.7);
+
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.7))
+    drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
+}
+
+/* Text outline effect - creates the black border around letters */
+.starcraft-title::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-text-stroke: 2px #000;
+    text-stroke: 2px #000;
+}
+
+/* 3D effect with multiple shadows */
+.starcraft-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: blur(1px);
+}
+
+/* mobile */
+@media (max-width: 640px) {
+    .starcraft-title {
+        font-size: 2rem;
+        letter-spacing: 0.03em;
+    }
+}

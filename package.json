@@ -1,24 +1,30 @@
 {
-  "name": "my-vue-app",
+  "name": "pwp-rts-timeline",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite --host",
-    "watch": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3",
     "vite": "^6.0.11"
   },
   "dependencies": {
+    "@astrojs/react": "^4.2.7",
     "@tailwindcss/postcss": "^4.0.0",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
     "astro": "^5.7.13",
-    "flowbite": "^3.0.0"
+    "flowbite": "^3.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
