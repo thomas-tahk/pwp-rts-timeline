@@ -17,5 +17,6 @@
       "@assets/*": ["src/assets/*"],
       "@scripts/*": ["src/scripts/*"],
       "@styles/*": ["src/styles/*"]
+    }
   }
 }

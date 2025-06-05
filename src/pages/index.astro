@@ -1,16 +1,144 @@
 ---
+// 🧭 ASTRO CONCEPT: Frontmatter
+// Everything between --- fences runs on the SERVER at build time
+// This is where you put JavaScript/TypeScript that generates your HTML
+// Think of it as "behind the scenes" code that runs BEFORE the page is sent to browsers
 
+// 🧭 ASTRO CONCEPT: CSS Imports
+// Import CSS files in the frontmatter - Astro will automatically include them
+import '../styles/global.css';
+import '../styles/tailwind.css';
+
+// You can define variables, import modules, fetch data, etc.
+const pageTitle = "RTS Timeline";
+const pageDescription = "A Brief and Biased History of Real Time Strategy Games";
 ---
 
+<!-- 🧭 ASTRO CONCEPT: Component Template
+     Everything OUTSIDE the frontmatter is your HTML template
+     This gets sent to the browser as regular HTML -->
+
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <!-- 🧭 ASTRO CONCEPT: Dynamic Values
+         Use {variable} to insert JavaScript values into HTML
+         These are evaluated at BUILD TIME, not runtime -->
+    <title>{pageTitle}</title>
+    
+    <!-- 🧭 ASTRO CONCEPT: CSS Imports
+         CSS is now imported in the frontmatter above, so no need for link tags -->
+</head>
+
+<!-- 🧭 ASTRO CONCEPT: Preserving Original Classes
+     Your existing CSS classes work exactly the same!
+     Just copy them over directly -->
+<body id="timeline-body" class="bg-gray-50 flex flex-col text-sm md:text-base bg-[url('/timeline-background.webp')] bg-contain bg-repeat-round">
+
+<section id="timeline" class="container mx-auto px-2 md:px-4 py-4 md:py-8 max-w-6xl">
+    <div class="starcraft-title-container">
+        <!-- 🧭 ASTRO CONCEPT: Dynamic Content in HTML
+             Using {pageDescription} instead of hard-coding the title -->
+        <h1 class="starcraft-title text-4xl font-bold text-center p-1 my-6 md:p-2 text-blue-600 drop-shadow-[0_4.4px_2.4px_rgba(0,0,0,0.8)]">
+            {pageDescription}
+        </h1>
+    </div>
+
+    <!-- Origins of RTS section -->
+    <!-- 🧭 ASTRO CONCEPT: Routing
+         In Astro, href="/rts-origins" will look for src/pages/rts-origins.astro
+         No need for "/index.html" - Astro handles routing automatically -->
+    <div class="flex flex-no-wrap justify-evenly pt-6">
+        <!-- left col -->
+        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
+            <a href="/rts-origins" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
+                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
+                    <div class="timeline-card">
+                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
+                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Origins of RTS</h3>
+                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
+                                <p>Subgenre of video games that diverged from its roots in table-top strategy and war games, shed turn-based mechanics, and established an identity of its own.</p>
+                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
+                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!--Vertical line column-->
+        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
+            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
+                <!-- beginning dot -->
+                <div class="metal-wrapper">
+                    <div class="metal-bg"></div>
+                    <div class="metal-fg w-6 h-6 rounded-full -ml-3 -mt-3"></div>
+                </div>
+                <a href="/rts-origins" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="1962 Waterloo">
+                    <img src="/rts-origins.png" alt="1962 Waterloo Board Game" class="h-full w-full object-fill p-1 border-none rounded-full">
+                </a>
+            </div>
+        </div>
+        
+        <!--right column-->
+        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
+        </div>
+    </div>
+
+    <!-- What is RTS section -->
+    <div class="flex flex-no-wrap justify-evenly">
+        <!-- left col -->
+        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
+        </div>
+        <!--line column-->
+        <div class="w-1/6 md:w-1/5 flex-none order-1 sm:order-2">
+            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
+                <a href="/what-is-rts" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="A screenshot of 1992 Dune 2">
+                    <img src="/dune2-lameposter.webp" alt="Dune 2 1992 Screenshot" class="h-full w-full object-fill p-1 border-none rounded-full">
+                </a>
+            </div>
+        </div>
+        <!--right column-->
+        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
+            <a href="/what-is-rts" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
+                <div class="text-gray-700 float-none md:float-left border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
+                    <div class="timeline-card">
+                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
+                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">What is an RTS?</h3>
+                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
+                                <p>RTS, short for Real Time Strategy is a genre of video games characterized by simultaneous play, called real-time and often fierce competition. RTS games are often described as chess on steroids.</p>
+                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
+                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- I'll continue with the rest of the timeline sections... -->
+    <!-- For now, let's test this basic structure first -->
+
+</section>
+
+<!-- 🧭 ASTRO CONCEPT: Client-Side JavaScript
+     If you need any client-side JavaScript, add it here
+     Your original site mostly uses CSS, so this might not be needed
+     But if you had interactive features, this is where they'd go -->
+<!-- <script type="module" src="/src/main.js"></script> -->
+
+</body>
 </html>
