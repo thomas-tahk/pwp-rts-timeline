@@ -1,0 +1,81 @@
+---
+// 🧭 ASTRO CONCEPT: Reusable Components
+// This component encapsulates the repetitive timeline card structure
+// Used for all the game series sections in the timeline
+
+export interface Props {
+  href: string;
+  title: string;
+  description: string | Fragment;
+  position: 'left' | 'right';
+  className?: string;
+}
+
+const { href, title, description, position, className = '' } = Astro.props;
+
+// Determine column classes based on position
+const leftColClasses = position === 'left' ? 
+  'w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1' : 
+  'md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1';
+
+const rightColClasses = position === 'right' ? 
+  'w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3' :
+  'md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3';
+
+const floatClass = position === 'left' ? 'md:float-right' : 'md:float-left';
+---
+
+<div class="flex flex-no-wrap justify-evenly">
+  <!-- left col -->
+  <div class={leftColClasses}>
+    {position === 'left' && (
+      <a href={href} class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
+        <div class={`text-gray-700 float-none ${floatClass} border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300 ${className}`}>
+          <div class="timeline-card">
+            <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
+              <h3 class="font-bold text-lg md:text-xl mb-2 text-center">{title}</h3>
+              <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
+                <Fragment set:html={description} />
+                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
+                  <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    )}
+  </div>
+  
+  <!--Vertical line column - always in center-->
+  <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
+    <slot name="timeline-button" />
+  </div>
+  
+  <!--right column-->
+  <div class={rightColClasses}>
+    {position === 'right' && (
+      <a href={href} class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
+        <div class={`text-gray-700 float-none ${floatClass} border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300 ${className}`}>
+          <div class="timeline-card">
+            <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
+              <h3 class="font-bold text-lg md:text-xl mb-2 text-center">{title}</h3>
+              <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
+                <Fragment set:html={description} />
+                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
+                  <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    )}
+  </div>
+</div>

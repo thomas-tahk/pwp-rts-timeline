@@ -1,0 +1,78 @@
+---
+// 🧭 ASTRO CONCEPT: Layout Components
+// Layouts wrap other content and provide common structure
+// Perfect for <html>, <head>, CSS imports, and footer
+
+export interface Props {
+  title: string;
+  bodyId?: string;
+  bodyClass?: string;
+}
+
+const { title, bodyId = '', bodyClass = '' } = Astro.props;
+
+// CSS imports - same for all pages
+import '../styles/global.css';
+import '../styles/tailwind.css';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{title}</title>
+</head>
+
+<body id={bodyId} class={bodyClass}>
+    <!-- 🧭 ASTRO CONCEPT: Slot
+         This is where the page content gets inserted -->
+    <slot />
+
+    <!-- Credits Section -->
+    <div class="max-w mt-24 p-6 rounded-lg text-center bg-sky-100">
+        <h3 class="font-bold text-lg md:text-xl mb-4">CREDITS</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs place-items-center justify-items-center">
+            <ul class="space-y-1 text-gray-600 col-span-1 text-left">
+                <li><a href="https://www.fandom.com/articles/starcraft-top-moments" class="hover:text-blue-500 active:text-blue-500">Starcraft Top Moments - Fandom</a></li>
+                <li class="hover:text-blue-500 active:text-blue-500">Perplexity for research assistance and some text content aid</li>
+                <li><a href="https://namu.wiki/" class="hover:text-blue-500 active:text-blue-500">Namu Wiki for Korean info and eSports photos</a></li>
+                <li><a href="https://search.brave.com/images" class="hover:text-blue-500 active:text-blue-500">Brave's Image Search</a></li>
+                <li><a href="https://liquipedia.net/" class="hover:text-blue-500 active:text-blue-500">Liquipedia/Team Liquid - Best English source for fan-based eSports and especially Starcraft information</a></li>
+            </ul>
+            <ul class="space-y-1 text-gray-600 col-span-1 text-left">
+                <li><a href="https://blizzard.gamespress.com/StarCraft" class="hover:text-blue-500 active:text-blue-500">Blizzard Press Kit</a></li>
+                <li><a href="https://www.youtube.com/channel/UCaxar6TBM-94_ezoS00fLkA" class="hover:text-blue-500 active:text-blue-500">Day[9] - Starcraft content</a></li>
+                <li><a href="https://www.pcgamer.com/starcraft-remastered-hasnt-changed-how-korea-feels-about-starcraft/" class="hover:text-blue-500 active:text-blue-500">PC Gamer Article, mainly for the image</a></li>
+                <li><a href="https://www.youtube.com/watch?v=ANdktCsPnIQ" class="hover:text-blue-500 active:text-blue-500">That guy from IEM Shanghai 2016</a></li>
+                <li><a href="https://sietch.net/Downloads/The_History_of_Real_Time_Strategy.pdf" class="hover:text-blue-500 active:text-blue-500">GameReplays.Org's The History of Real Time Strategy</a></li>
+            </ul>
+            <ul class="space-y-1 text-gray-600 col-span-1 text-left">
+                <li><a href="https://www.wired.com/story/fall-and-rise-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Wired Article </a></li>
+                <li><a href="https://ageofempires.fandom.com/" class="hover:text-blue-500 active:text-blue-500">Age of Empires Fandom for most AOE assets</a></li>
+                <li><a href="https://arstechnica.com/gaming/2017/09/build-gather-brawl-repeat-the-history-of-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Ars Technica - history piece</a></li>
+                <li><a href="https://www.cdw.com/content/cdw/en/articles/hardware/history-of-esports.html" class="hover:text-blue-500 active:text-blue-500">CDW's bullet point timeline </a></li>
+                <li><a href="https://www.youtube.com/@TVOngamenet/videos" class="hover:text-blue-500 active:text-blue-500">OGN Vods (OnGameNet) - some of the better remaining television broadcast archives of Starcraft Broodwar</a></li>
+            </ul>
+            <ul class="space-y-1 text-gray-600 col-span-1 text-left">
+                <li><a href="https://tailwindcss.com/docs" class="hover:text-blue-500 active:text-blue-500">Tailwind for all the CSS</a></li>
+                <li><a href="https://flowbite.com/" class="hover:text-blue-500 active:text-blue-500">Flowbite - for mainly the galleries</a></li>
+                <li><a href="https://developers.google.com/youtube/iframe_api_reference" class="hover:text-blue-500 active:text-blue-500">YouTube's iframe API that was kinda confusing me until I realized I forgot to turn off VPN</a></li>
+                <li class="hover:text-blue-500 active:text-blue-500">Thanks to all the individual YouTube channels who captured some great moments in RTS history for me to either grab a screen or embed into this project.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="block bg-sky-200 p-8">
+        <div class="flex justify-center space-x-8">
+            <a href="https://github.com/thomas-tahk">
+                <img src="/github-mark.png" alt="GitHub" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
+            </a>
+            <a href="https://www.linkedin.com/in/thomas-tahk-dev/">
+                <img src="/LI-In-Bug.png" alt="LinkedIn" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

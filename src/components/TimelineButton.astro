@@ -1,0 +1,29 @@
+---
+// 🧭 ASTRO CONCEPT: Timeline Button Component
+// This component handles the circular timeline navigation buttons
+// Includes the gold vertical line and the circular image button
+
+export interface Props {
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  showStartDot?: boolean;
+}
+
+const { href, imageSrc, imageAlt, title, showStartDot = false } = Astro.props;
+---
+
+<div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
+  {showStartDot && (
+    <div class="metal-wrapper">
+      <div class="metal-bg"></div>
+      <div class="metal-fg w-6 h-6 rounded-full -ml-3 -mt-3"></div>
+    </div>
+  )}
+  <a href={href} 
+     class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" 
+     title={title}>
+    <img src={imageSrc} alt={imageAlt} class="h-full w-full object-fill p-1 border-none rounded-full">
+  </a>
+</div>

@@ -1,42 +1,21 @@
 ---
-// 🧭 ASTRO CONCEPT: Frontmatter
-// Everything between --- fences runs on the SERVER at build time
-// This is where you put JavaScript/TypeScript that generates your HTML
-// Think of it as "behind the scenes" code that runs BEFORE the page is sent to browsers
+// 🧭 ASTRO CONCEPT: Using Layout and Components
+// Import our new layout and components for cleaner, reusable code
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import TimelineButton from '../components/TimelineButton.astro';
 
-// 🧭 ASTRO CONCEPT: CSS Imports
-// Import CSS files in the frontmatter - Astro will automatically include them
-import '../styles/global.css';
-import '../styles/tailwind.css';
-
-// You can define variables, import modules, fetch data, etc.
 const pageTitle = "RTS Timeline";
 const pageDescription = "A Brief and Biased History of Real Time Strategy Games";
 ---
 
-<!-- 🧭 ASTRO CONCEPT: Component Template
-     Everything OUTSIDE the frontmatter is your HTML template
-     This gets sent to the browser as regular HTML -->
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-    <!-- 🧭 ASTRO CONCEPT: Dynamic Values
-         Use {variable} to insert JavaScript values into HTML
-         These are evaluated at BUILD TIME, not runtime -->
-    <title>{pageTitle}</title>
-    
-    <!-- 🧭 ASTRO CONCEPT: CSS Imports
-         CSS is now imported in the frontmatter above, so no need for link tags -->
-</head>
-
-<!-- 🧭 ASTRO CONCEPT: Preserving Original Classes
-     Your existing CSS classes work exactly the same!
-     Just copy them over directly -->
-<body id="timeline-body" class="bg-gray-50 flex flex-col text-sm md:text-base bg-[url('/timeline-background.webp')] bg-contain bg-repeat-round">
+<!-- 🧭 ASTRO CONCEPT: Using Layout Component
+     BaseLayout handles the HTML structure, head, and common elements -->
+<BaseLayout 
+  title={pageTitle} 
+  bodyId="timeline-body" 
+  bodyClass="bg-gray-50 flex flex-col text-sm md:text-base bg-[url('/timeline-background.webp')] bg-contain bg-repeat-round"
+>
 
 <section id="timeline" class="container mx-auto px-2 md:px-4 py-4 md:py-8 max-w-6xl">
     <div class="starcraft-title-container">
@@ -48,358 +27,150 @@ const pageDescription = "A Brief and Biased History of Real Time Strategy Games"
     </div>
 
     <!-- Origins of RTS section -->
-    <!-- 🧭 ASTRO CONCEPT: Routing
-         In Astro, href="/rts-origins" will look for src/pages/rts-origins.astro
-         No need for "/index.html" - Astro handles routing automatically -->
-    <div class="flex flex-no-wrap justify-evenly pt-6">
-        <!-- left col -->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
-            <a href="/rts-origins" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Origins of RTS</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>Subgenre of video games that diverged from its roots in table-top strategy and war games, shed turn-based mechanics, and established an identity of its own.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <!--Vertical line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <!-- beginning dot -->
-                <div class="metal-wrapper">
-                    <div class="metal-bg"></div>
-                    <div class="metal-fg w-6 h-6 rounded-full -ml-3 -mt-3"></div>
-                </div>
-                <a href="/rts-origins" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="1962 Waterloo">
-                    <img src="/rts-origins.png" alt="1962 Waterloo Board Game" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        
-        <!--right column-->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
-        </div>
-    </div>
+    <TimelineCard 
+      href="/rts-origins" 
+      title="Origins of RTS" 
+      description="<p>Subgenre of video games that diverged from its roots in table-top strategy and war games, shed turn-based mechanics, and established an identity of its own.</p>"
+      position="left"
+      className="pt-6"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/rts-origins" 
+        imageSrc="/rts-origins.png" 
+        imageAlt="1962 Waterloo Board Game" 
+        title="1962 Waterloo"
+        showStartDot={true}
+      />
+    </TimelineCard>
 
     <!-- What is RTS section -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
-        </div>
-        <!--line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 sm:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/what-is-rts" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="A screenshot of 1992 Dune 2">
-                    <img src="/dune2-lameposter.webp" alt="Dune 2 1992 Screenshot" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
-            <a href="/what-is-rts" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-left border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">What is an RTS?</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>RTS, short for Real Time Strategy is a genre of video games characterized by simultaneous play, called real-time and often fierce competition. RTS games are often described as chess on steroids.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <TimelineCard 
+      href="/what-is-rts" 
+      title="What is an RTS?" 
+      description="<p>RTS, short for Real Time Strategy is a genre of video games characterized by simultaneous play, called real-time and often fierce competition. RTS games are often described as chess on steroids.</p>"
+      position="right"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/what-is-rts" 
+        imageSrc="/dune2-lameposter.webp" 
+        imageAlt="Dune 2 1992 Screenshot" 
+        title="A screenshot of 1992 Dune 2"
+      />
+    </TimelineCard>
 
     <!-- RTS Goats - P1 - Warcraft -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
-            <a href="/warcraft" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Warcraft</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <ul> Warcraft was and still is one of the defining franchises in RTS history throughout the decades. Developed by Blizzard Entertainment
-                                    <li class="list-none">Warcraft: Orcs & Humans [1995]</li>
-                                    <li class="list-none">Warcraft II [1996]</li>
-                                    <li class="list-none font-bold">Warcraft III [2002]</li>
-                                    <li class="list-none">Warcraft III: Reforged [2020]</li>
-                                    <li class="list-none">Warcraft II: Remastered [2024]</li>
-                                    <li class="list-none">Warcraft I: Remastered [2024]</li>
-                                </ul>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!--Vertical line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/warcraft" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="Warcraft 3 Frozen Throne">
-                    <img src="/Warcraft3-Icon.webp" alt="Warcraft 3" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
-        </div>
-    </div>
+    <TimelineCard 
+      href="/warcraft" 
+      title="Warcraft" 
+      description="<ul> Warcraft was and still is one of the defining franchises in RTS history throughout the decades. Developed by Blizzard Entertainment<li class='list-none'>Warcraft: Orcs & Humans [1995]</li><li class='list-none'>Warcraft II [1996]</li><li class='list-none font-bold'>Warcraft III [2002]</li><li class='list-none'>Warcraft III: Reforged [2020]</li><li class='list-none'>Warcraft II: Remastered [2024]</li><li class='list-none'>Warcraft I: Remastered [2024]</li></ul>"
+      position="left"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/warcraft" 
+        imageSrc="/Warcraft3-Icon.webp" 
+        imageAlt="Warcraft 3" 
+        title="Warcraft 3 Frozen Throne"
+      />
+    </TimelineCard>
 
     <!-- RTS Goats - P2 - Command & Conquer -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
-        </div>
-        <!--line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/command-and-conquer" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="RedAlert3 exe icon">
-                    <img src="/CnC_Red_Alert_3_Icon.webp" alt="Red Alert Icon" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
-            <a href="/command-and-conquer" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-left border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Command & Conquer</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <ul>Command & Conquer may well be the most definitive RTS series in history and is certainly the most prolific. However, we'll narrow our focus to the most critically acclaimed titles developed by Westwood Studios.
-                                    <li class="list-none">Command & Conquer [1995]</li>
-                                    <li class="list-none">Command & Conquer: Red Alert [1996]</li>
-                                    <li class="list-none">Command & Conquer: Sole Survivor [1997]</li>
-                                    <li class="list-none font-bold">Command & Conquer: Tiberian Sun [1999]</li>
-                                    <li class="list-none font-bold">Command & Conquer: Red Alert 2 [2000]</li>
-                                    <li class="list-none">Command & Conquer: Renegade [2000]</li>
-                                </ul>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <TimelineCard 
+      href="/command-and-conquer" 
+      title="Command & Conquer" 
+      description="<ul>Command & Conquer may well be the most definitive RTS series in history and is certainly the most prolific. However, we'll narrow our focus to the most critically acclaimed titles developed by Westwood Studios.<li class='list-none'>Command & Conquer [1995]</li><li class='list-none'>Command & Conquer: Red Alert [1996]</li><li class='list-none'>Command & Conquer: Sole Survivor [1997]</li><li class='list-none font-bold'>Command & Conquer: Tiberian Sun [1999]</li><li class='list-none font-bold'>Command & Conquer: Red Alert 2 [2000]</li><li class='list-none'>Command & Conquer: Renegade [2000]</li></ul>"
+      position="right"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/command-and-conquer" 
+        imageSrc="/CnC_Red_Alert_3_Icon.webp" 
+        imageAlt="Red Alert Icon" 
+        title="RedAlert3 exe icon"
+      />
+    </TimelineCard>
 
     <!-- RTS Goats - P3 - Age of Empires -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
-            <a href="/age-of-empires" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Age of Empires</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <ul> Age of series are considered by many to be pinnacle of RTS, bar none.
-                                    <li class="list-none">Age of Empires 1 [1997]</li>
-                                    <li class="list-none font-bold">Age of Empires 2 [1999]</li>
-                                    <li class="list-none">Age of Mythology [2002]</li>
-                                    <li class="list-none">Age of Empires 3 [2005]</li>
-                                    <li class="list-none">Age of Empires 4 [2021]</li>
-                                </ul>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!--Vertical line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/age-of-empires" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="AOE2 DE Logo">
-                    <img src="/AoEII_icon.webp" alt="AOE2 Logo" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
-        </div>
-    </div>
+    <TimelineCard 
+      href="/age-of-empires" 
+      title="Age of Empires" 
+      description="<ul> Age of series are considered by many to be pinnacle of RTS, bar none.<li class='list-none'>Age of Empires 1 [1997]</li><li class='list-none font-bold'>Age of Empires 2 [1999]</li><li class='list-none'>Age of Mythology [2002]</li><li class='list-none'>Age of Empires 3 [2005]</li><li class='list-none'>Age of Empires 4 [2021]</li></ul>"
+      position="left"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/age-of-empires" 
+        imageSrc="/AoEII_icon.webp" 
+        imageAlt="AOE2 Logo" 
+        title="AOE2 DE Logo"
+      />
+    </TimelineCard>
 
     <!-- RTS Goats - P4 - Starcraft Broodwar -->
-    <div class="flex flex-no-wrap md:flex-row-reverse1 justify-evenly">
-        <!-- left col -->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
-        </div>
-        <!--line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/starcraft" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="A screenshot of 1992 Dune 2">
-                    <img src="/SC-BW-boxart.webp" alt="Queen of Blades" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
-            <a href="/starcraft" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-left border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Starcraft: Broodwar [1998, 2017]</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>Starcraft and its same-year expansion Broodwar is perhaps the most significant game to ever release for all of RTS, and is easily a contender for the game that stands above all.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <TimelineCard 
+      href="/starcraft" 
+      title="Starcraft: Broodwar [1998, 2017]" 
+      description="<p>Starcraft and its same-year expansion Broodwar is perhaps the most significant game to ever release for all of RTS, and is easily a contender for the game that stands above all.</p>"
+      position="right"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/starcraft" 
+        imageSrc="/SC-BW-boxart.webp" 
+        imageAlt="Queen of Blades" 
+        title="A screenshot of 1992 Dune 2"
+      />
+    </TimelineCard>
 
     <!-- RTS Oligarchy - P5 - Starcraft II -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
-            <a href="/starcraft2" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Starcraft 2 [2010, 2013, 2015]</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>Starcraft 2 is probably the most well known and played RTS in the world since its initial release in 2010 as the long awaited successor to Broodwar. It has undoubtedly carved itself an unshakable seat at the table of the greatest RTS games ever made, outside the massive shadow of its predecessor.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!--Vertical line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/starcraft2" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="SC2 Raynor">
-                    <img src="/This_Is_Jimmy.webp" alt="SC2 Raynor" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
-        </div>
-    </div>
+    <TimelineCard 
+      href="/starcraft2" 
+      title="Starcraft 2 [2010, 2013, 2015]" 
+      description="<p>Starcraft 2 is probably the most well known and played RTS in the world since its initial release in 2010 as the long awaited successor to Broodwar. It has undoubtedly carved itself an unshakable seat at the table of the greatest RTS games ever made, outside the massive shadow of its predecessor.</p>"
+      position="left"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/starcraft2" 
+        imageSrc="/This_Is_Jimmy.webp" 
+        imageAlt="SC2 Raynor" 
+        title="SC2 Raynor"
+      />
+    </TimelineCard>
 
     <!-- E-Sports -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
-        </div>
-        <!--line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/e-sports" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15" title="Once Upon an ESport">
-                    <img src="/CasterJunEarly.webp" alt="EsportsHistory" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
-            <a href="/e-sports" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-left border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">eSports</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>RTS games trailblazed competitive gaming to its pinnacle and sustained popularity to the modern day, including its branding as eSports.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <TimelineCard 
+      href="/e-sports" 
+      title="eSports" 
+      description="<p>RTS games trailblazed competitive gaming to its pinnacle and sustained popularity to the modern day, including its branding as eSports.</p>"
+      position="right"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/e-sports" 
+        imageSrc="/CasterJunEarly.webp" 
+        imageAlt="EsportsHistory" 
+        title="Once Upon an ESport"
+      />
+    </TimelineCard>
 
     <!-- Legacy -->
-    <div class="flex flex-no-wrap justify-evenly">
-        <!-- left col -->
-        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
-            <a href="/legacy" class="block transition-all duration-300 transform hover:scale-105 focus:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-400 rounded">
-                <div class="text-gray-700 float-none md:float-right border-2 rounded border-green-200 bg-gradient-to-tr from-gray-200 to-gray-500 shadow-lg p-4 hover:shadow-2xl focus:shadow-2xl active:shadow-inner transition-all duration-300">
-                    <div class="timeline-card">
-                        <div class="bg-gradient-to-br from-sky-100 to-blue-400 p-4 rounded-lg shadow-md flex-grow hover:from-sky-200 hover:to-blue-500 focus:from-sky-200 focus:to-blue-500 active:from-sky-300 active:to-blue-600 transition-all duration-300">
-                            <h3 class="font-bold text-lg md:text-xl mb-2 text-center">Legacy</h3>
-                            <div class="mt-2 md:mt-4 font-semibold text-gray-700 border-none rounded">
-                                <p>Golden years may have passed but RTS endures and has an ongoing legacy that continues to influence games in and out of its genre, gaming culture, and more.</p>
-                                <div class="mt-3 text-sm font-semibold text-blue-900 flex items-center justify-end">
-                                    <span class="hidden md:inline mr-1">Click</span><span class="mr-1 md:hidden">Tap</span> for more
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!--Vertical line column-->
-        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
-            <div class="bg-[var(--gold)] p-1 h-full w-2 mx-auto">
-                <a href="/legacy" class="inline-block h-20 w-20 md:h-30 md:w-30 mt-10 bg-[var(--before-hover)] hover:bg-[var(--gold)] active:bg-[var(--gold)] text-white font-bold rounded-full mx-auto -ml-10 md:-ml-15">
-                    <img src="/Mengsk_legacy_icon.webp" alt="regal legacy icon: Mengsk" class="h-full w-full object-fill p-1 border-none rounded-full">
-                </a>
-            </div>
-        </div>
-        <!--right column-->
-        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
-        </div>
-    </div>
+    <TimelineCard 
+      href="/legacy" 
+      title="Legacy" 
+      description="<p>Golden years may have passed but RTS endures and has an ongoing legacy that continues to influence games in and out of its genre, gaming culture, and more.</p>"
+      position="left"
+    >
+      <TimelineButton 
+        slot="timeline-button"
+        href="/legacy" 
+        imageSrc="/Mengsk_legacy_icon.webp" 
+        imageAlt="regal legacy icon: Mengsk" 
+        title="Legacy"
+      />
+    </TimelineCard>
 
     <!--bottom arrow-->
     <div class="flex flex-no-wrap md:flex-row-reverse1 justify-evenly">
@@ -416,57 +187,4 @@ const pageDescription = "A Brief and Biased History of Real Time Strategy Games"
 
 </section>
 
-<!-- Credits Section -->
-<div class="max-w mt-24 p-6 rounded-lg text-center bg-sky-100">
-    <h3 class="font-bold text-lg md:text-xl mb-4">CREDITS</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs place-items-center justify-items-center">
-        <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://www.fandom.com/articles/starcraft-top-moments" class="hover:text-blue-500 active:text-blue-500">Starcraft Top Moments - Fandom</a></li>
-            <li class="hover:text-blue-500 active:text-blue-500">Perplexity for research assistance and some text content aid</li>
-            <li><a href="https://namu.wiki/" class="hover:text-blue-500 active:text-blue-500">Namu Wiki for Korean info and eSports photos</a></li>
-            <li><a href="https://search.brave.com/images" class="hover:text-blue-500 active:text-blue-500">Brave's Image Search</a></li>
-            <li><a href="https://liquipedia.net/" class="hover:text-blue-500 active:text-blue-500">Liquipedia/Team Liquid - Best English source for fan-based eSports and especially Starcraft information</a></li>
-        </ul>
-        <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://blizzard.gamespress.com/StarCraft" class="hover:text-blue-500 active:text-blue-500">Blizzard Press Kit</a></li>
-            <li><a href="https://www.youtube.com/channel/UCaxar6TBM-94_ezoS00fLkA" class="hover:text-blue-500 active:text-blue-500">Day[9] - Starcraft content</a></li>
-            <li><a href="https://www.pcgamer.com/starcraft-remastered-hasnt-changed-how-korea-feels-about-starcraft/" class="hover:text-blue-500 active:text-blue-500">PC Gamer Article, mainly for the image</a></li>
-            <li><a href="https://www.youtube.com/watch?v=ANdktCsPnIQ" class="hover:text-blue-500 active:text-blue-500">That guy from IEM Shanghai 2016</a></li>
-            <li><a href="https://sietch.net/Downloads/The_History_of_Real_Time_Strategy.pdf" class="hover:text-blue-500 active:text-blue-500">GameReplays.Org's The History of Real Time Strategy</a></li>
-        </ul>
-        <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://www.wired.com/story/fall-and-rise-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Wired Article </a></li>
-            <li><a href="https://ageofempires.fandom.com/" class="hover:text-blue-500 active:text-blue-500">Age of Empires Fandom for most AOE assets</a></li>
-            <li><a href="https://arstechnica.com/gaming/2017/09/build-gather-brawl-repeat-the-history-of-real-time-strategy-games/" class="hover:text-blue-500 active:text-blue-500">Ars Technica - history piece</a></li>
-            <li><a href="https://www.cdw.com/content/cdw/en/articles/hardware/history-of-esports.html" class="hover:text-blue-500 active:text-blue-500">CDW's bullet point timeline </a></li>
-            <li><a href="https://www.youtube.com/@TVOngamenet/videos" class="hover:text-blue-500 active:text-blue-500">OGN Vods (OnGameNet) - some of the better remaining television broadcast archives of Starcraft Broodwar</a></li>
-        </ul>
-        <ul class="space-y-1 text-gray-600 col-span-1 text-left">
-            <li><a href="https://tailwindcss.com/docs" class="hover:text-blue-500 active:text-blue-500">Tailwind for all the CSS</a></li>
-            <li><a href="https://flowbite.com/" class="hover:text-blue-500 active:text-blue-500">Flowbite - for mainly the galleries</a></li>
-            <li><a href="https://developers.google.com/youtube/iframe_api_reference" class="hover:text-blue-500 active:text-blue-500">YouTube's iframe API that was kinda confusing me until I realized I forgot to turn off VPN</a></li>
-            <li class="hover:text-blue-500 active:text-blue-500">Thanks to all the individual YouTube channels who captured some great moments in RTS history for me to either grab a screen or embed into this project.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="block bg-sky-200 p-8">
-    <div class="flex justify-center space-x-8">
-        <a href="https://github.com/thomas-tahk">
-            <img src="/github-mark.png" alt="GitHub" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
-        </a>
-        <a href="https://www.linkedin.com/in/thomas-tahk-dev/">
-            <img src="/LI-In-Bug.png" alt="LinkedIn" class="w-12 h-12 hover:bg-sky-300 active:bg-sky-300">
-        </a>
-    </div>
-</footer>
-
-<!-- 🧭 ASTRO CONCEPT: Client-Side JavaScript
-     If you need any client-side JavaScript, add it here
-     Your original site mostly uses CSS, so this might not be needed
-     But if you had interactive features, this is where they'd go -->
-<!-- <script type="module" src="/src/main.js"></script> -->
-
-</body>
-</html>
+</BaseLayout>
