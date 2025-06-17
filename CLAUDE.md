@@ -34,19 +34,23 @@ npm run astro ...
 - ✅ TailwindCSS v4 + Flowbite integration
 - ✅ Project structure scaffolding
 - ✅ CSS styles migrated to `src/styles/global.css`
+- ✅ Main timeline page migrated to `src/pages/index.astro`
+- ✅ Component-based architecture with reusable timeline components
+- ✅ BaseLayout, TimelineCard, and TimelineButton components
 
 ### In Progress / TODO
-- 🔄 Migrate HTML pages from `_tempt_my_site_files/` to Astro pages
-- 🔄 Convert timeline sections to Astro components/pages
+- 🔄 Migrate remaining individual pages from `_tempt_my_site_files/` to Astro pages
 - 🔄 Set up proper routing for multi-page structure
-- 🔄 Integrate React components where needed
-- 🔄 Migrate custom fonts and assets
+- 🔄 Integrate React components where interactive features are needed
+- 🔄 Test and validate component-based timeline functionality
 
 ## Architecture
 
 ### Current Astro Structure
-- `src/pages/index.astro` - Main entry point (currently minimal)
-- `src/styles/BaseLayout.astro` - Layout component
+- `src/pages/index.astro` - Main timeline page (fully migrated with components)
+- `src/layouts/BaseLayout.astro` - Layout component handling HTML structure, CSS imports, credits, and footer
+- `src/components/TimelineCard.astro` - Reusable timeline card component with alternating left/right positioning
+- `src/components/TimelineButton.astro` - Circular timeline navigation buttons with images
 - `src/styles/global.css` - Migrated CSS from original site
 - `src/styles/tailwind.css` - TailwindCSS imports
 
@@ -97,9 +101,29 @@ Each timeline section follows a consistent 3-column flexbox layout:
 ### Key Considerations
 - Preserve existing design and functionality during migration
 - Convert HTML pages to Astro pages with proper frontmatter
-- Potentially extract reusable components (timeline cards, navigation, etc.)
+- ✅ **COMPLETED**: Extracted reusable components (BaseLayout, TimelineCard, TimelineButton)
 - Maintain SEO-friendly structure with proper routing
 - Consider where React components add value vs. static Astro components
+
+### Component Architecture
+
+The timeline components follow a slot-based pattern:
+
+**BaseLayout.astro**
+- Wraps pages with common HTML structure, CSS imports, credits, and footer
+- Takes `title`, `bodyId`, and `bodyClass` props
+- Uses `<slot />` for page-specific content
+
+**TimelineCard.astro**
+- Handles alternating left/right timeline card positioning
+- Takes `href`, `title`, `description`, `position` ("left" or "right"), and optional `className`
+- Uses `<slot name="timeline-button" />` for center navigation element
+- Preserves all original hover/focus effects and responsive behavior
+
+**TimelineButton.astro**
+- Circular timeline navigation buttons with gold vertical line
+- Takes `href`, `imageSrc`, `imageAlt`, `title`, and optional `showStartDot`
+- Handles the timeline dot progression and interactive button styling
 
 ### Original Features to Preserve
 - Interactive timeline navigation
