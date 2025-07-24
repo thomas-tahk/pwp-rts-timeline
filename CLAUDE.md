@@ -1,5 +1,6 @@
 # CLAUDE.md
 
+<!-- Trigger deployment: restore main branch to production -->
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
