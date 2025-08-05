@@ -1,16 +1,13 @@
 ---
-// 🧭 ASTRO CONCEPT: Using Layout and Components
-// Import our new layout and components for cleaner, reusable code
+// Minimal component approach - preserve original structure
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TimelineCard from '../components/TimelineCard.astro';
-import TimelineButton from '../components/TimelineButton.astro';
+import CardContent from '../components/CardContent.astro';
+import ButtonContent from '../components/ButtonContent.astro';
 
 const pageTitle = "RTS Timeline";
 const pageDescription = "An Incomplete History of Real Time Strategy Games";
 ---
 
-<!-- 🧭 ASTRO CONCEPT: Using Layout Component
-     BaseLayout handles the HTML structure, head, and common elements -->
 <BaseLayout 
   title={pageTitle} 
   bodyId="timeline-body" 
@@ -19,158 +16,86 @@ const pageDescription = "An Incomplete History of Real Time Strategy Games";
 
 <section id="timeline" class="container mx-auto px-2 md:px-4 py-4 md:py-8 max-w-6xl">
     <div class="starcraft-title-container">
-        <!-- 🧭 ASTRO CONCEPT: Dynamic Content in HTML
-             Using {pageDescription} instead of hard-coding the title -->
         <h1 class="starcraft-title text-4xl font-bold text-center p-1 my-6 md:p-2 text-blue-600 drop-shadow-[0_4.4px_2.4px_rgba(0,0,0,0.8)]">
             {pageDescription}
         </h1>
     </div>
 
     <!-- Origins of RTS section -->
-    <TimelineCard 
-      href="/rts-origins" 
-      title="Origins of RTS" 
-      description="<p>Subgenre of video games that diverged from its roots in table-top strategy and war games, shed turn-based mechanics, and established an identity of its own.</p>"
-      position="left"
-      className="pt-6"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/rts-origins" 
-        imageSrc="/rts-origins.png" 
-        imageAlt="1962 Waterloo Board Game" 
-        title="1962 Waterloo"
-        showStartDot={true}
-      />
-    </TimelineCard>
+    <div class="flex flex-nowrap justify-evenly pt-6">
+        <!-- left col -->
+        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
+            <CardContent 
+              href="/rts-origins" 
+              title="Origins of RTS" 
+              description="<p>Subgenre of video games that diverged from its roots in table-top strategy and war games, shed turn-based mechanics, and established an identity of its own.</p>"
+              floatDirection="right"
+            />
+        </div>
+        <!--Vertical line column-->
+        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
+            <ButtonContent 
+              href="/rts-origins" 
+              imageSrc="/rts-origins.png" 
+              imageAlt="1962 Waterloo Board Game" 
+              title="1962 Waterloo"
+              showStartDot={true}
+            />
+        </div>
+        <!--right column-->
+        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
+        </div>
+    </div>
 
     <!-- What is RTS section -->
-    <TimelineCard 
-      href="/what-is-rts" 
-      title="What is an RTS?" 
-      description="<p>RTS, short for Real Time Strategy is a genre of video games characterized by simultaneous play, called real-time and often fierce competition. RTS games are often described as chess on steroids.</p>"
-      position="right"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/what-is-rts" 
-        imageSrc="/dune2-lameposter.webp" 
-        imageAlt="Dune 2 1992 Screenshot" 
-        title="A screenshot of 1992 Dune 2"
-      />
-    </TimelineCard>
+    <div class="flex flex-nowrap justify-evenly">
+        <!-- left col -->
+        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-1 md:order-1">
+        </div>
+        <!--line column-->
+        <div class="w-1/6 md:w-1/5 flex-none order-1 sm:order-2">
+            <ButtonContent 
+              href="/what-is-rts" 
+              imageSrc="/dune2-lameposter.webp" 
+              imageAlt="Dune 2 1992 Screenshot" 
+              title="A screenshot of 1992 Dune 2"
+            />
+        </div>
+        <!--right column-->
+        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-3">
+            <CardContent 
+              href="/what-is-rts" 
+              title="What is an RTS?" 
+              description="<p>RTS, short for Real Time Strategy is a genre of video games characterized by simultaneous play, called real-time and often fierce competition. RTS games are often described as chess on steroids.</p>"
+              floatDirection="left"
+            />
+        </div>
+    </div>
 
     <!-- RTS Goats - P1 - Warcraft -->
-    <TimelineCard 
-      href="/warcraft" 
-      title="Warcraft" 
-      description="<ul> Warcraft was and still is one of the defining franchises in RTS history throughout the decades. Developed by Blizzard Entertainment<li class='list-none'>Warcraft: Orcs & Humans [1995]</li><li class='list-none'>Warcraft II [1996]</li><li class='list-none font-bold'>Warcraft III [2002]</li><li class='list-none'>Warcraft III: Reforged [2020]</li><li class='list-none'>Warcraft II: Remastered [2024]</li><li class='list-none'>Warcraft I: Remastered [2024]</li></ul>"
-      position="left"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/warcraft" 
-        imageSrc="/Warcraft3-Icon.webp" 
-        imageAlt="Warcraft 3" 
-        title="Warcraft 3 Frozen Throne"
-      />
-    </TimelineCard>
-
-    <!-- RTS Goats - P2 - Command & Conquer -->
-    <TimelineCard 
-      href="/command-and-conquer" 
-      title="Command & Conquer" 
-      description="<ul>Command & Conquer may well be the most definitive RTS series in history and is certainly the most prolific. However, we'll narrow our focus to the most critically acclaimed titles developed by Westwood Studios.<li class='list-none'>Command & Conquer [1995]</li><li class='list-none'>Command & Conquer: Red Alert [1996]</li><li class='list-none'>Command & Conquer: Sole Survivor [1997]</li><li class='list-none font-bold'>Command & Conquer: Tiberian Sun [1999]</li><li class='list-none font-bold'>Command & Conquer: Red Alert 2 [2000]</li><li class='list-none'>Command & Conquer: Renegade [2000]</li></ul>"
-      position="right"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/command-and-conquer" 
-        imageSrc="/CnC_Red_Alert_3_Icon.webp" 
-        imageAlt="Red Alert Icon" 
-        title="RedAlert3 exe icon"
-      />
-    </TimelineCard>
-
-    <!-- RTS Goats - P3 - Age of Empires -->
-    <TimelineCard 
-      href="/age-of-empires" 
-      title="Age of Empires" 
-      description="<ul> Age of series are considered by many to be pinnacle of RTS, bar none.<li class='list-none'>Age of Empires 1 [1997]</li><li class='list-none font-bold'>Age of Empires 2 [1999]</li><li class='list-none'>Age of Mythology [2002]</li><li class='list-none'>Age of Empires 3 [2005]</li><li class='list-none'>Age of Empires 4 [2021]</li></ul>"
-      position="left"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/age-of-empires" 
-        imageSrc="/AoEII_icon.webp" 
-        imageAlt="AOE2 Logo" 
-        title="AOE2 DE Logo"
-      />
-    </TimelineCard>
-
-    <!-- RTS Goats - P4 - Starcraft Broodwar -->
-    <TimelineCard 
-      href="/starcraft" 
-      title="Starcraft: Broodwar [1998, 2017]" 
-      description="<p>Starcraft and its same-year expansion Broodwar is perhaps the most significant game to ever release for all of RTS, and is easily a contender for the game that stands above all.</p>"
-      position="right"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/starcraft" 
-        imageSrc="/SC-BW-boxart.webp" 
-        imageAlt="Queen of Blades" 
-        title="A screenshot of 1992 Dune 2"
-      />
-    </TimelineCard>
-
-    <!-- RTS Oligarchy - P5 - Starcraft II -->
-    <TimelineCard 
-      href="/starcraft2" 
-      title="Starcraft 2 [2010, 2013, 2015]" 
-      description="<p>Starcraft 2 is probably the most well known and played RTS in the world since its initial release in 2010 as the long awaited successor to Broodwar. It has undoubtedly carved itself an unshakable seat at the table of the greatest RTS games ever made, outside the massive shadow of its predecessor.</p>"
-      position="left"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/starcraft2" 
-        imageSrc="/This_Is_Jimmy.webp" 
-        imageAlt="SC2 Raynor" 
-        title="SC2 Raynor"
-      />
-    </TimelineCard>
-
-    <!-- E-Sports -->
-    <TimelineCard 
-      href="/e-sports" 
-      title="eSports" 
-      description="<p>RTS games trailblazed competitive gaming to its pinnacle and sustained popularity to the modern day, including its branding as eSports.</p>"
-      position="right"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/e-sports" 
-        imageSrc="/CasterJunEarly.webp" 
-        imageAlt="EsportsHistory" 
-        title="Once Upon an ESport"
-      />
-    </TimelineCard>
-
-    <!-- Legacy -->
-    <TimelineCard 
-      href="/legacy" 
-      title="Legacy" 
-      description="<p>Golden years may have passed but RTS endures and has an ongoing legacy that continues to influence games in and out of its genre, gaming culture, and more.</p>"
-      position="left"
-    >
-      <TimelineButton 
-        slot="timeline-button"
-        href="/legacy" 
-        imageSrc="/Mengsk_legacy_icon.webp" 
-        imageAlt="regal legacy icon: Mengsk" 
-        title="Legacy"
-      />
-    </TimelineCard>
+    <div class="flex flex-nowrap justify-evenly">
+        <!-- left col -->
+        <div class="w-3/4 md:w-2/5 flex-none p-1 md:p-2 order-2 md:order-1">
+            <CardContent 
+              href="/warcraft" 
+              title="Warcraft" 
+              description="<ul> Warcraft was and still is one of the defining franchises in RTS history throughout the decades. Developed by Blizzard Entertainment<li class='list-none'>Warcraft: Orcs & Humans [1995]</li><li class='list-none'>Warcraft II [1996]</li><li class='list-none font-bold'>Warcraft III [2002]</li><li class='list-none'>Warcraft III: Reforged [2020]</li><li class='list-none'>Warcraft II: Remastered [2024]</li><li class='list-none'>Warcraft I: Remastered [2024]</li></ul>"
+              floatDirection="right"
+            />
+        </div>
+        <!--Vertical line column-->
+        <div class="w-1/6 md:w-1/5 flex-none order-1 md:order-2">
+            <ButtonContent 
+              href="/warcraft" 
+              imageSrc="/Warcraft3-Icon.webp" 
+              imageAlt="Warcraft 3" 
+              title="Warcraft 3 Frozen Throne"
+            />
+        </div>
+        <!--right column-->
+        <div class="md:w-2/5 flex-none p-1 md:p-2 hidden md:block order-3">
+        </div>
+    </div>
 
     <!--bottom arrow-->
     <div class="flex flex-nowrap md:flex-row-reverse1 justify-evenly">

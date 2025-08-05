@@ -27,7 +27,7 @@ npm run preview
 npm run astro ...
 ```
 
-## Current Migration Status
+## Current Migration Status - DEBUGGING PHASE
 
 ### Completed
 - ✅ Basic Astro + React setup with TypeScript
@@ -35,24 +35,43 @@ npm run astro ...
 - ✅ Project structure scaffolding
 - ✅ CSS styles migrated to `src/styles/global.css`
 - ✅ Main timeline page migrated to `src/pages/index.astro`
-- ✅ Component-based architecture with reusable timeline components
-- ✅ BaseLayout, TimelineCard, and TimelineButton components
+- ✅ All assets migrated from `_tempt_my_site_files/public/` to main `public/` directory
+- ✅ Simplified component architecture (CardContent.astro, ButtonContent.astro)
+- ✅ Downgraded Tailwind from v4.1.7 to v4.0.0 to match working main branch
+- ✅ Updated PostCSS config to match main branch exactly
+- ✅ Removed debugging CSS overrides from global.css
 
-### In Progress / TODO
-- 🔄 Migrate remaining individual pages from `_tempt_my_site_files/` to Astro pages
-- 🔄 Set up proper routing for multi-page structure
-- 🔄 Integrate React components where interactive features are needed
-- 🔄 Test and validate component-based timeline functionality
+### CURRENT ISSUE - Tailwind CSS Processing
+**Problem**: The refactor branch (Astro + Tailwind v4.1.7) had broken CSS layout while the main branch (Vite + Tailwind v4.0.0) works correctly.
+
+**Root Cause Identified**: Build system differences between Astro and Vite processing Tailwind CSS differently.
+
+**Solution Applied**: 
+- Downgraded `tailwindcss` and `@tailwindcss/postcss` from v4.1.7 to v4.0.0
+- Updated `postcss.config.cjs` to match main branch exactly
+- Removed Vite Tailwind plugin from `astro.config.mjs`
+
+**Current Status**: 
+- Astro dev server starts successfully on localhost:4321
+- Need to test if layout issues are resolved with the Tailwind downgrade
+- All debugging CSS has been cleaned up
+
+### Next Steps
+1. Verify layout is fixed by viewing localhost:4321 in browser
+2. Test responsive behavior and timeline component positioning
+3. If working, commit the fix and continue with remaining page migrations
 
 ## Architecture
 
 ### Current Astro Structure
-- `src/pages/index.astro` - Main timeline page (fully migrated with components)
+- `src/pages/index.astro` - Main timeline page with simplified component approach
 - `src/layouts/BaseLayout.astro` - Layout component handling HTML structure, CSS imports, credits, and footer
-- `src/components/TimelineCard.astro` - Reusable timeline card component with alternating left/right positioning
-- `src/components/TimelineButton.astro` - Circular timeline navigation buttons with images
-- `src/styles/global.css` - Migrated CSS from original site
+- `src/components/CardContent.astro` - Simple timeline card content component (href, title, description, floatDirection props)
+- `src/components/ButtonContent.astro` - Simple timeline button component (href, imageSrc, imageAlt, title, showStartDot props)
+- `src/styles/global.css` - Migrated CSS from original site (debugging CSS removed)
 - `src/styles/tailwind.css` - TailwindCSS imports
+
+**Component Architecture Note**: Original complex TimelineCard/TimelineButton components were replaced with simpler CardContent/ButtonContent components that preserve the original HTML structure instead of creating nested divs that interfered with flexbox layout.
 
 ### Original Site Structure (in `_tempt_my_site_files/`)
 The original multi-page HTML structure includes:
@@ -101,29 +120,31 @@ Each timeline section follows a consistent 3-column flexbox layout:
 ### Key Considerations
 - Preserve existing design and functionality during migration
 - Convert HTML pages to Astro pages with proper frontmatter
-- ✅ **COMPLETED**: Extracted reusable components (BaseLayout, TimelineCard, TimelineButton)
+- ✅ **COMPLETED**: Simplified component architecture to avoid layout conflicts
 - Maintain SEO-friendly structure with proper routing
 - Consider where React components add value vs. static Astro components
 
-### Component Architecture
-
-The timeline components follow a slot-based pattern:
+### Component Architecture (Current Simplified Approach)
 
 **BaseLayout.astro**
 - Wraps pages with common HTML structure, CSS imports, credits, and footer
 - Takes `title`, `bodyId`, and `bodyClass` props
 - Uses `<slot />` for page-specific content
 
-**TimelineCard.astro**
-- Handles alternating left/right timeline card positioning
-- Takes `href`, `title`, `description`, `position` ("left" or "right"), and optional `className`
-- Uses `<slot name="timeline-button" />` for center navigation element
-- Preserves all original hover/focus effects and responsive behavior
+**CardContent.astro** (Simple content-only component)
+- Props: `href`, `title`, `description`, `floatDirection`
+- No layout structure - just renders timeline card content
+- Preserves original hover/focus effects
 
-**TimelineButton.astro**
-- Circular timeline navigation buttons with gold vertical line
-- Takes `href`, `imageSrc`, `imageAlt`, `title`, and optional `showStartDot`
-- Handles the timeline dot progression and interactive button styling
+**ButtonContent.astro** (Simple button-only component)
+- Props: `href`, `imageSrc`, `imageAlt`, `title`, `showStartDot`
+- Contains gold timeline line and circular navigation buttons
+- No wrapper structure to avoid layout conflicts
+
+### Package Configuration (Critical for Fresh Session)
+- `package.json`: Tailwind downgraded to v4.0.0, includes `@tailwindcss/postcss@4.0.0`
+- `postcss.config.cjs`: Uses `@tailwindcss/postcss` and `flowbite/plugin`
+- `astro.config.mjs`: Only includes React integration (no Vite Tailwind plugin)
 
 ### Original Features to Preserve
 - Interactive timeline navigation
