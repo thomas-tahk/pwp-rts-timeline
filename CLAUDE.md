@@ -41,20 +41,24 @@ npm run astro ...
 - ✅ Updated PostCSS config to match main branch exactly
 - ✅ Removed debugging CSS overrides from global.css
 
-### CURRENT ISSUE - Tailwind CSS Processing
-**Problem**: The refactor branch (Astro + Tailwind v4.1.7) had broken CSS layout while the main branch (Vite + Tailwind v4.0.0) works correctly.
+### RESOLVED - Tailwind CSS v4 + Astro Integration
+**Problem**: Tailwind CSS classes were not being processed, causing broken layout with unstyled elements.
 
-**Root Cause Identified**: Build system differences between Astro and Vite processing Tailwind CSS differently.
+**Root Cause**: Using incorrect PostCSS approach instead of official Tailwind v4 + Astro Vite plugin setup.
 
-**Solution Applied**: 
-- Downgraded `tailwindcss` and `@tailwindcss/postcss` from v4.1.7 to v4.0.0
-- Updated `postcss.config.cjs` to match main branch exactly
-- Removed Vite Tailwind plugin from `astro.config.mjs`
+**CORRECT Solution (Official Tailwind v4 + Astro Setup)**: 
+1. Install: `npm install @tailwindcss/vite`
+2. Configure Vite plugin in `astro.config.mjs`:
+   ```js
+   import tailwindcss from '@tailwindcss/vite';
+   export default defineConfig({
+     integrations: [react()],
+     vite: { plugins: [tailwindcss()] }
+   });
+   ```
+3. Use `@import "tailwindcss";` in CSS file (not `@tailwind` directives)
 
-**Current Status**: 
-- Astro dev server starts successfully on localhost:4321
-- Need to test if layout issues are resolved with the Tailwind downgrade
-- All debugging CSS has been cleaned up
+**LESSON LEARNED**: Always check official documentation first rather than attempting band-aid fixes. Astro 5.2+ officially supports Tailwind v4 via Vite plugin, not PostCSS.
 
 ### Next Steps
 1. Verify layout is fixed by viewing localhost:4321 in browser
