@@ -80,6 +80,12 @@ npm run astro ...
 - CardContent/ButtonContent components for timeline elements
 - File-based routing for clean URLs
 
+**Deployment Notes**:
+- GitHub Actions workflow (`.github/workflows/deploy.yml`) deploys on EVERY push to ANY branch
+- Main branch contains working Vite version (production backup)
+- Refactor branch contains completed Astro migration
+- To deploy refactor: merge to main or update workflow to deploy from refactor branch
+
 ## Architecture
 
 ### Current Astro Structure
