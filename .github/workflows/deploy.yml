@@ -1,8 +1,10 @@
 
   name: Deploy via SSH
   'on':
-    - push
-    - repository_dispatch
+    push:
+      branches:
+        - main
+    repository_dispatch:
   permissions:
     actions: read
     contents: read
